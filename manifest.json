@@ -1,0 +1,18 @@
+{
+  "name": "Field Ready",
+  "short_name": "Field Ready",
+  "description": "WorkSafeBC Advanced First Aid skill retention",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0E1520",
+  "theme_color": "#0E8C84",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFNElEQVR4nO3dzXLcNhBFYY4qa+dho120dHbOw0Yv4CxcdFEz/EcD6HtxvrXjIhvHHWjKkh8Tin378f1nxO/z+f7xiPh9RsYAT4qK9i5iP4chregd71lE/oqBTDoBHyHwgYN2iXjLqHEP9dLuEW8ZKe4hXnTUkJ+NELbtCxLxPte47V6KkK9xC9vmZQi5jEvY8i9ByLHUw5Z9eEKuSzVsuYcm5LbUwn7r/QBXEHN7ajOX+NOnNlRXCts6/YYm5jwUziLtnziF4Y0s67ZOuaGJOb+sZ5Qu6KyDwquMZ5XmfxsZh4PzslxBUmxoYtaX5Qy7B51lECiX4Sy7Bp1hAIjV+0y7Bd37xVFPz7NtfpEn5LG0/mKx6YYm5vG0PvNmQRPzuFqefZOgiRmtGqgeNDFj1qKF7p9DA5GqBs12xrPaTVQLmpixpWYbVYImZhyp1Uh40MSMs2q0Eho0MeOq6Gb4lANWwoJmO+OuyHZCgiZmlIpqqDhoYkaUiJa4Q8NKUdBsZ0Qrbep20MSMWkra4soBK7eCZjujtruNXf5+L2I+9t9ff5/+tX/++0/FJ9F39XsSuXIEuxLznV+PfZeCZjvvuxsnUW+72hwbOkhplEQd43TQbOdtUTES9bor7bGhYeVU0Gxn9Ha2QTY0rBwGzXZGFmdaZEPDym7QbGdkc9QkGxpWCBpWNoPmuoGs9tpkQ8PKatBsZ2S31SgbGlYIGlZegua6ARVrrbKhYYWgYeVL0Fw3oOa5WTY0rBA0rBA0rPwOmvszVC3bZUPDCkHDCkHDCkHDyts08QUh9M0Ns6FhhaBhhaBhhaBhhaBhhaBh5aH+kR0/JDye8j9kJL2hibkO5bnKBq08dAWq85UMWnXYahTnLBe04pCVqc1bLmhgD0HDCkHDCkHDCkHDCkHDCkHDCkHDCkHDCkHDilzQyn+1UZHavOWCnia9IatSnLNk0NOkOWwlqvN9+3z/ePR+iLtUh56d6lw/3z8ef/R+iFIZhh/5VywzvI8y2SsHsIagYYWgYYWgYYWgYeVtmn593NH7QYASc8NsaFghaFghaFghaFj5HTRfGELVsl02NKwQNKwQNKx8CZp7NNQ8N8uGhhWChpWXoLl2QMVaq2xoWCFoWFkNmmsHsttqlA0NK5tBs6WR1V6bbGhYIWhY2Q2aaweyOWqSDQ0rh0GzpZHFmRbZ0LByKmi2NHo72yAbGlZOB82WRi9X2mNDB4j6IeX8sPNyl4JmS28rjZGY111tjg0d6G6UxBznctBs6X1X4yTmbXdaux3ntx/ff979b4EjdxcnVw5YuR00Vw/UUtJW0YYmakQrbYorB6wUB82WRpSIlkI2NFGjVFRDYVcOosZdke1wh4aV0KDZ0rgqupnwDU3UOKtGK1WuHESNI7UaqXaHJmpsqdlG1S8KiRrPajfBpxywUj1otjRmLVposqGJGq0aaHblIOpxtTz7pndooh5P6zPvFhjfwuWt1/Lq9ikH29pXz7Pt+rEdUfvpfabdP4fuPQDEyXCW3YOephyDQJksZ5jiIZb4YlFLlpBnKTb0UrYBYVvGs0oX9DTlHBS+ynpGKR9qiStILllDnqXc0EvZBzgShbNI/4BLbOs+FEKepd/QS0qDdaE2c6mHXWJb16UW8kzyoZcIO5ZqyDPph18i7DLqIc8sXmKJsK9xCXlm9TJLhL3PLeSZ5Us9I+5fXCNesn/BpVHDHiHk2TAv+sw97pEiXhrypZ+5xD1qxEvDD2CNSuAE/IqBnNQ7cuI9hyEFiIqdaMv9D/ER3Vpk6c0yAAAAAElFTkSuQmCC",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
