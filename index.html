@@ -9355,7 +9355,8 @@ function loadState(){
     items: store.get("afa_items") || {},      // id -> {due, interval, ease, reps}
     domains: store.get("afa_domains") || {},  // id -> {seen, correct, attempts, last}
     streak: store.get("afa_streak") || {count:0,last:null},
-    seenDisc: store.get("afa_disc") || false
+    seenDisc: store.get("afa_disc") || false,
+    recent: store.get("afa_recent") || {scenarios:[],quiz:[],lessons:[],focus:[]}  // rolling history to avoid repeats
   };
 }
 
@@ -9409,6 +9410,7 @@ function App(){
   useEffect(()=>{ store.set("afa_domains", st.domains); },[st.domains]);
   useEffect(()=>{ store.set("afa_streak", st.streak); },[st.streak]);
   useEffect(()=>{ store.set("afa_disc", st.seenDisc); },[st.seenDisc]);
+  useEffect(()=>{ store.set("afa_recent", st.recent); },[st.recent]);
 
   const evac = useMemo(()=>{
     if(!st.profile) return "remote";
@@ -9435,6 +9437,19 @@ function App(){
       const d = {...(prev.domains[domainId]||{attempts:0,correct:0,seenIds:[]})};
       d.seenIds = Array.from(new Set([...(d.seenIds||[]), itemId]));
       return {...prev, domains:{...prev.domains,[domainId]:d}};
+    });
+  }
+  function recordShown(picked){
+    if(!picked) return;
+    setSt(prev=>{
+      const r = prev.recent || {scenarios:[],quiz:[],lessons:[],focus:[]};
+      const merge=(incoming,old,n)=>{ const a=[...(incoming||[]),...(old||[])]; return a.filter((v,i)=>a.indexOf(v)===i).slice(0,n); };
+      return {...prev, recent:{
+        scenarios: merge(picked.scenarios, r.scenarios, 8),
+        quiz:      merge(picked.quiz,      r.quiz,      24),
+        lessons:   merge(picked.lessons,   r.lessons,   6),
+        focus:     merge(picked.focus,     r.focus,     4)
+      }};
     });
   }
   function bumpStreak(){
@@ -9494,7 +9509,7 @@ function App(){
           ? <DetailView view={view} evac={evac} onItem={recordItem} onDomain={recordDomain}
               onSeen={markSeen} back={()=>setView(null)} />
           : <React.Fragment>
-              {tab==="today"    && <Today st={st} evac={evac} start={(s)=>setSession(s)} />}
+              {tab==="today"    && <Today st={st} evac={evac} start={(s)=>{ recordShown(s.picked); setSession(s); }} />}
               {tab==="practice" && <Practice open={(v)=>setView(v)} />}
               {tab==="reference"&& <Reference open={(v)=>setView(v)} />}
               {tab==="me"       && <Me st={st} evac={evac} setSt={setSt} />}
@@ -9592,16 +9607,33 @@ function BaselineQ({q,onAnswer}){
 }
 
 /* ================= Today ================= */
+/* pick n items from pool, preferring those not seen recently, with randomized ties.
+   recentIds is most-recent-first; items absent from it are freshest. */
+function pickFresh(pool, recentIds, n){
+  recentIds = recentIds || [];
+  const scored = pool.map(item=>{
+    const ri = recentIds.indexOf(item.id);
+    const freshness = ri<0 ? 1e9 : ri;   // higher = better (older or never shown)
+    return {item, freshness, rnd:Math.random()};
+  }).sort((a,b)=> (b.freshness - a.freshness) || (a.rnd - b.rnd));
+  return scored.slice(0, n).map(s=>s.item);
+}
+
 function buildSession(st, evac){
   const today = todayStr();
-  const dueCards = C.flashcards.filter(f=>{ const s=st.items[f.id]; return !s || s.due<=today; });
-  // prioritise high stakes + current industry tags
+  const rec = st.recent || {scenarios:[],quiz:[],lessons:[],focus:[]};
   const ind = st.profile.industry;
+
+  // ---- cards: due-driven, prioritise high stakes + industry, randomise ties ----
+  const dueCards = C.flashcards.filter(f=>{ const s=st.items[f.id]; return !s || s.due<=today; });
   const score = (f)=>{ const dm=C.domains.find(d=>d.id===f.domainId); let s=0;
     if(dm&&dm.stakes==="high") s+=2; if(f.tags&&f.tags.includes(ind)) s+=1; return s; };
-  const cards = dueCards.sort((a,b)=>score(b)-score(a)).slice(0,6);
+  const cards = dueCards
+    .map(f=>({f, s:score(f), rnd:Math.random()}))
+    .sort((a,b)=> (b.s-a.s) || (a.rnd-b.rnd))
+    .slice(0,6).map(x=>x.f);
 
-  // weakest domain
+  // ---- rank domains weakest-first ----
   const ranked = C.domains.map(d=>{
     const cnt = C.flashcards.filter(f=>f.domainId===d.id).length + C.quiz.filter(q=>q.domainId===d.id).length;
     const r = readiness(d, st.domains[d.id], cnt);
@@ -9611,21 +9643,42 @@ function buildSession(st, evac){
     const aw=a.d.stakes==="high"?10:0, bw=b.d.stakes==="high"?10:0;
     return (av+(-aw)) - (bv+(-bw));
   });
-  const weak = ranked[0].d;
 
-  const scenarioPool = C.scenarios.filter(s=> s.tags.includes(ind) || s.domainIds.includes(weak.id));
-  const scenario = (scenarioPool[0] || C.scenarios[Math.floor(Math.random()*C.scenarios.length)]);
+  // rotate the focus among the weakest few so the scenario/quiz/note vary day to day
+  const candidates = ranked.slice(0, 4).map(x=>x.d);
+  const weak = pickFresh(candidates, rec.focus, 1)[0] || ranked[0].d;
 
-  const quiz = C.quiz.filter(q=>q.domainId===weak.id).slice(0,3);
-  const quizFill = quiz.length<3 ? C.quiz.filter(q=>!quiz.includes(q)).slice(0,3-quiz.length) : [];
-  const lesson = C.microlessons.find(m=>m.domainId===weak.id) || C.microlessons[0];
+  // ---- scenario: from the weak domain or industry, freshest first ----
+  let scenarioPool = C.scenarios.filter(s=> s.domainIds.includes(weak.id) || s.tags.includes(ind));
+  if(scenarioPool.length===0) scenarioPool = C.scenarios;
+  const scenario = pickFresh(scenarioPool, rec.scenarios, 1)[0];
+
+  // ---- quiz: prefer the weak domain, fill from elsewhere, freshest first, no repeats within set ----
+  let quiz = pickFresh(C.quiz.filter(q=>q.domainId===weak.id), rec.quiz, 3);
+  if(quiz.length < 3){
+    const have = new Set(quiz.map(q=>q.id));
+    const fill = pickFresh(C.quiz.filter(q=>!have.has(q.id) && q.domainId!==weak.id), rec.quiz, 3-quiz.length);
+    quiz = [...quiz, ...fill];
+  }
+
+  // ---- field note: freshest from the weak domain, else freshest overall ----
+  let lessonPool = C.microlessons.filter(m=>m.domainId===weak.id);
+  if(lessonPool.length===0) lessonPool = C.microlessons;
+  const lesson = pickFresh(lessonPool, rec.lessons, 1)[0];
 
   const steps=[];
   cards.forEach(c=>steps.push({type:"card",data:c}));
   if(scenario) steps.push({type:"scenario",data:scenario});
-  [...quiz,...quizFill].forEach(q=>steps.push({type:"quiz",data:q}));
+  quiz.forEach(q=>steps.push({type:"quiz",data:q}));
   if(lesson) steps.push({type:"lesson",data:lesson});
-  return {steps, weak:weak.name};
+
+  const picked = {
+    scenarios: scenario?[scenario.id]:[],
+    quiz: quiz.map(q=>q.id),
+    lessons: lesson?[lesson.id]:[],
+    focus: [weak.id]
+  };
+  return {steps, weak:weak.name, picked};
 }
 
 function Today({st, evac, start}){
