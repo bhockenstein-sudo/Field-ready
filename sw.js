@@ -1,6 +1,6 @@
-const CACHE = "field-ready-v1";
+const CACHE = "field-ready-v2";
 
-// Files to cache on install — the app shell and CDN scripts
+// App shell + CDN scripts cached for offline use
 const PRECACHE = [
   "./index.html",
   "./manifest.json",
@@ -9,43 +9,56 @@ const PRECACHE = [
   "https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"
 ];
 
-// Install: cache everything
 self.addEventListener("install", function(e){
   e.waitUntil(
-    caches.open(CACHE).then(function(cache){
-      return cache.addAll(PRECACHE);
-    }).then(function(){ return self.skipWaiting(); })
+    caches.open(CACHE).then(function(c){ return c.addAll(PRECACHE); })
+      .then(function(){ return self.skipWaiting(); })
   );
 });
 
-// Activate: clear old caches
 self.addEventListener("activate", function(e){
   e.waitUntil(
     caches.keys().then(function(keys){
-      return Promise.all(
-        keys.filter(function(k){ return k !== CACHE; })
-            .map(function(k){ return caches.delete(k); })
-      );
+      return Promise.all(keys.filter(function(k){ return k !== CACHE; })
+                             .map(function(k){ return caches.delete(k); }));
     }).then(function(){ return self.clients.claim(); })
   );
 });
 
-// Fetch: cache-first for our files, network-first for everything else
 self.addEventListener("fetch", function(e){
-  e.respondWith(
-    caches.match(e.request).then(function(cached){
-      if(cached) return cached;
-      return fetch(e.request).then(function(response){
-        // Cache successful same-origin and CDN responses
-        if(response && response.status === 200){
-          var clone = response.clone();
-          caches.open(CACHE).then(function(cache){ cache.put(e.request, clone); });
-        }
-        return response;
+  var req = e.request;
+  if(req.method !== "GET") return;
+  var url = new URL(req.url);
+
+  // The app page itself: NETWORK FIRST so updates show when online,
+  // falling back to the cached copy when offline.
+  var isPage = req.mode === "navigate"
+    || url.pathname.endsWith("/")
+    || url.pathname.endsWith("index.html");
+
+  if(isPage){
+    e.respondWith(
+      fetch(req).then(function(resp){
+        var clone = resp.clone();
+        caches.open(CACHE).then(function(c){ c.put("./index.html", clone); });
+        return resp;
       }).catch(function(){
-        // Offline fallback: return app shell
-        return caches.match("./index.html");
-      });
+        return caches.match("./index.html").then(function(r){ return r || caches.match(req); });
+      })
+    );
+    return;
+  }
+
+  // Everything else (scripts, manifest, icon): cache first, then network.
+  e.respondWith(
+    caches.match(req).then(function(cached){
+      return cached || fetch(req).then(function(resp){
+        if(resp && resp.status === 200){
+          var clone = resp.clone();
+          caches.open(CACHE).then(function(c){ c.put(req, clone); });
+        }
+        return resp;
+      }).catch(function(){ return cached; });
     })
   );
 });

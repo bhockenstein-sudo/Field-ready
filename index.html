@@ -12611,6 +12611,10 @@ function App(){
     return <Tour theme={theme} setTheme={setTheme} onDone={()=> setSt(prev=>({...prev, seenTour:true}))} />;
   }
 
+  if(st.profile && !(st.profile.name||"").trim()){
+    return <NamePrompt onDone={(name)=> setSt(prev=>({...prev, profile:{...prev.profile, name}}))} />;
+  }
+
   if(!st.profile){
     const finishOnboard=(p)=>{
       if(p && p.demo){
@@ -12742,6 +12746,19 @@ function Tour({onDone, theme, setTheme}){
   </div>);
 }
 
+function NamePrompt({onDone}){
+  const [name,setName]=useState("");
+  return (<div className="screen">
+    <p className="eyebrow">One quick thing</p>
+    <h1 className="h1">What should we call you?</h1>
+    <p className="muted" style={{marginBottom:16}}>Just a first name is fine. It is stored only on this device and is used to personalize the app.</p>
+    <p className="label">Your name</p>
+    <input className="input" type="text" value={name} autoComplete="given-name" placeholder="e.g. Brian"
+      onChange={e=>setName(e.target.value)} onKeyDown={e=>{ if(e.key==="Enter"&&name.trim()) onDone(name.trim()); }} />
+    <button className="btn btn-amber" style={{marginTop:6}} disabled={!name.trim()} onClick={()=>onDone(name.trim())}>Continue</button>
+  </div>);
+}
+
 function Onboarding({onDone}){
   const [step,setStep]=useState(0);
   const [name,setName]=useState("");
@@ -12797,7 +12814,7 @@ function Onboarding({onDone}){
       <h1 className="h1">Quick baseline</h1>
       <p className="muted" style={{marginBottom:16}}>Five questions so your readiness board starts honest instead of empty.</p>
       <Progress i={bi} n={baseline.length}/>
-      <BaselineQ q={baseline[bi]} onAnswer={(ok)=>{
+      <BaselineQ key={baseline[bi].id} q={baseline[bi]} onAnswer={(ok)=>{
         const na={...answers,[baseline[bi].id]:ok}; setAnswers(na);
         if(bi+1<baseline.length) setBi(bi+1); else finish();
       }}/>
@@ -12811,6 +12828,7 @@ function Onboarding({onDone}){
 }
 function BaselineQ({q,onAnswer}){
   const [picked,setPicked]=useState(null);
+  useEffect(()=>{ setPicked(null); },[q.id]);
   const correct = picked===q.answer;
   return (<div className="card">
     <p className="scene-prompt">{q.stem}</p>
@@ -13242,6 +13260,8 @@ function Me({st,evac,setSt}){
         setSt(p=>({...p, items:{}, domains:{}, streak:{count:0,last:null}}));
       }
     }}>Reset my progress</button>
+
+    <p className="muted center" style={{marginTop:18,fontSize:11,opacity:.7}}>Field Ready · build 2 · {C.flashcards.length+C.quiz.length+C.microlessons.length+C.scenarios.length} items</p>
   </div>);
 }
 
