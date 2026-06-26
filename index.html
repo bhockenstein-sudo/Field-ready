@@ -196,6 +196,37 @@
   .search svg{position:absolute;left:12px;top:14px;width:18px;height:18px;color:var(--faint)}
   .track{height:7px;border-radius:4px;background:var(--track);overflow:hidden}
   .fill{height:100%;border-radius:4px}
+
+  /* first-run walkthrough */
+  .tour{position:fixed;inset:0;z-index:60;background:var(--grad);background-attachment:fixed;
+    display:flex;flex-direction:column;max-width:520px;margin:0 auto;
+    padding:calc(18px + env(safe-area-inset-top)) 20px calc(22px + env(safe-area-inset-bottom))}
+  .tour-skip{align-self:flex-end;background:none;border:none;color:var(--muted);font-family:var(--sys);font-size:14px;font-weight:600;cursor:pointer;padding:6px 4px}
+  .tour-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .tour-visual{width:100%;max-width:320px;margin-bottom:18px}
+  .tour-card{background:var(--glass);backdrop-filter:blur(22px) saturate(1.7);-webkit-backdrop-filter:blur(22px) saturate(1.7);
+    border:1px solid var(--glass-brd);border-radius:22px;box-shadow:var(--shadow);padding:18px 16px;width:100%}
+  .tour-title{font-size:25px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:4px 0 8px}
+  .tour-body{font-size:15px;line-height:1.55;color:var(--muted);max-width:340px}
+  .tour-dots{display:flex;gap:7px;justify-content:center;margin:20px 0}
+  .tour-dot{width:7px;height:7px;border-radius:50%;background:var(--track);transition:all .25s ease}
+  .tour-dot.on{background:var(--accent);width:22px;border-radius:4px}
+  .tour-nav{display:flex;gap:10px}
+  .tour-nav .btn{flex:1}
+  .tv-chip{display:inline-flex;align-items:center;font-size:12px;font-weight:600;color:var(--ink);background:var(--glass-2);
+    border:1px solid var(--glass-brd);border-radius:20px;padding:6px 11px;margin:3px}
+  .tv-tabs{display:flex;justify-content:space-around;width:100%}
+  .tv-tab{display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--muted);font-size:11px;font-weight:600}
+  .tv-tab svg{width:26px;height:26px}
+  .tv-tab.on{color:var(--accent)}
+  .tv-rate{display:flex;gap:7px;width:100%;margin-top:8px}
+  .tv-rate span{flex:1;font-size:11.5px;font-weight:600;padding:9px 4px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--glass-2);color:var(--ink)}
+  .tv-toggle{width:72px;height:72px;border-radius:50%;border:1px solid var(--glass-brd);background:var(--glass-2);color:var(--ink);
+    display:grid;place-items:center;cursor:pointer;margin:0 auto;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .tour-replay{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+    background:var(--glass);border:1px solid var(--glass-brd);border-radius:16px;padding:14px 16px;cursor:pointer;
+    color:var(--ink);font-size:15px;font-weight:600;box-shadow:var(--shadow);
+    backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -3040,6 +3071,1613 @@ window.AFA_CONTENT = {
       "domainId": "role",
       "front": "Why support the patient emotionally, not just physically?",
       "back": "Calm reassurance reduces fear, which can reduce harmful movement and help the patient cooperate.",
+      "tags": []
+    },
+    {
+      "id": "f322",
+      "domainId": "role",
+      "front": "What determines a workplace's first aid requirements?",
+      "back": "The hazard level of the work, the number of workers, and the travel time to medical care.",
+      "tags": [
+        "industrial",
+        "construction",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f323",
+      "domainId": "role",
+      "front": "What are the three certification levels of workplace first aid in BC?",
+      "back": "Basic, Intermediate, and Advanced, with Advanced being the highest and formerly called Level 3.",
+      "tags": []
+    },
+    {
+      "id": "f324",
+      "domainId": "role",
+      "front": "When does a workplace need a dedicated first aid room?",
+      "back": "When the hazard rating, worker numbers, and distance to care reach the threshold set in the regulation.",
+      "tags": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "f325",
+      "domainId": "role",
+      "front": "Why can the attendant not give medications freely?",
+      "back": "Attendants work within a defined scope and may only assist with what they are trained and authorised to give.",
+      "tags": []
+    },
+    {
+      "id": "f326",
+      "domainId": "role",
+      "front": "What is a working-alone check-in procedure?",
+      "back": "A scheduled way to confirm a lone worker is safe, so help is sent if a check-in is missed.",
+      "tags": [
+        "forestry",
+        "marine",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f327",
+      "domainId": "role",
+      "front": "What must a transportation plan cover?",
+      "back": "How an injured worker is moved to care, by what method, over what route, and who is responsible.",
+      "tags": [
+        "forestry",
+        "wilderness",
+        "marine"
+      ]
+    },
+    {
+      "id": "f328",
+      "domainId": "role",
+      "front": "Why preserve the scene after a serious incident?",
+      "back": "So the cause can be investigated and similar injuries prevented, once patient care allows.",
+      "tags": [
+        "industrial",
+        "construction"
+      ]
+    },
+    {
+      "id": "f329",
+      "domainId": "role",
+      "front": "What happens to first aid records?",
+      "back": "They are kept confidential and retained, and they inform investigation and follow-up care.",
+      "tags": []
+    },
+    {
+      "id": "f330",
+      "domainId": "role",
+      "front": "Why does the attendant have authority at the scene of an injury?",
+      "back": "So one person coordinates care and decisions, reducing confusion in an emergency.",
+      "tags": []
+    },
+    {
+      "id": "f331",
+      "domainId": "role",
+      "front": "What should happen when one attendant hands off to another?",
+      "back": "A clear report of the patient, what was found, and what was done, so care continues smoothly.",
+      "tags": []
+    },
+    {
+      "id": "f332",
+      "domainId": "role",
+      "front": "Why must communication equipment be part of the plan?",
+      "back": "Because summoning help quickly depends on reliable communication, especially in remote sites.",
+      "tags": [
+        "wilderness",
+        "marine",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f333",
+      "domainId": "role",
+      "front": "When should you call for an ambulance rather than transport the worker yourself?",
+      "back": "When the patient is seriously ill or injured, or when professional transport can reach them in time.",
+      "tags": []
+    },
+    {
+      "id": "f334",
+      "domainId": "role",
+      "front": "What is the attendant's responsibility for kit readiness?",
+      "back": "To check supplies regularly so the kit is complete and nothing is expired when needed.",
+      "tags": []
+    },
+    {
+      "id": "f335",
+      "domainId": "role",
+      "front": "Why is the attendant's own readiness part of the job?",
+      "back": "An attendant who is fit, available, and reachable can respond, which is the whole point of the role.",
+      "tags": []
+    },
+    {
+      "id": "f336",
+      "domainId": "assessment",
+      "front": "What is a general impression?",
+      "back": "The quick read of how sick or injured a patient looks, formed as you approach.",
+      "tags": []
+    },
+    {
+      "id": "f337",
+      "domainId": "assessment",
+      "front": "What is the purpose of the primary survey?",
+      "back": "To find and treat immediate threats to life in the airway, breathing, and circulation.",
+      "tags": []
+    },
+    {
+      "id": "f338",
+      "domainId": "assessment",
+      "front": "What is a rapid body survey?",
+      "back": "A quick check for major injuries on a seriously hurt patient before transport.",
+      "tags": []
+    },
+    {
+      "id": "f339",
+      "domainId": "assessment",
+      "front": "What is the secondary survey?",
+      "back": "A more thorough head-to-toe examination and history once life threats are controlled.",
+      "tags": []
+    },
+    {
+      "id": "f340",
+      "domainId": "assessment",
+      "front": "What does each letter of AVPU mean?",
+      "back": "Alert, responds to Voice, responds to Pain, Unresponsive.",
+      "tags": []
+    },
+    {
+      "id": "f341",
+      "domainId": "assessment",
+      "front": "How do you check a pulse and for how long?",
+      "back": "At the wrist or neck, counting the beats over a set time to get a rate.",
+      "tags": []
+    },
+    {
+      "id": "f342",
+      "domainId": "assessment",
+      "front": "Why not tell a patient you are counting their breaths?",
+      "back": "People change their breathing when they know it is watched, so count discreetly.",
+      "tags": []
+    },
+    {
+      "id": "f343",
+      "domainId": "assessment",
+      "front": "What do skin colour, temperature and moisture indicate?",
+      "back": "Clues to circulation and shock, such as pale, cool, clammy skin.",
+      "tags": []
+    },
+    {
+      "id": "f344",
+      "domainId": "assessment",
+      "front": "What does PEARL describe about pupils?",
+      "back": "Pupils Equal And Reactive to Light, a normal finding.",
+      "tags": []
+    },
+    {
+      "id": "f345",
+      "domainId": "assessment",
+      "front": "What is a normal adult pulse range?",
+      "back": "About 60 to 100 beats per minute at rest.",
+      "tags": []
+    },
+    {
+      "id": "f346",
+      "domainId": "assessment",
+      "front": "Are children's normal pulse and breathing rates higher or lower than adults?",
+      "back": "Higher. Younger patients normally have faster pulses and breathing.",
+      "tags": []
+    },
+    {
+      "id": "f347",
+      "domainId": "assessment",
+      "front": "What does OPQRST stand for?",
+      "back": "Onset, Provocation, Quality, Region and radiation, Severity, Time.",
+      "tags": []
+    },
+    {
+      "id": "f348",
+      "domainId": "assessment",
+      "front": "What does SAMPLE stand for?",
+      "back": "Signs and symptoms, Allergies, Medications, Past history, Last food and drink, Events.",
+      "tags": []
+    },
+    {
+      "id": "f349",
+      "domainId": "assessment",
+      "front": "How often do you reassess an unstable patient?",
+      "back": "Frequently, every few minutes, watching for any change in their condition.",
+      "tags": []
+    },
+    {
+      "id": "f350",
+      "domainId": "assessment",
+      "front": "What is a distracting injury?",
+      "back": "A painful but less serious injury that can pull your attention from a hidden life threat.",
+      "tags": []
+    },
+    {
+      "id": "f351",
+      "domainId": "assessment",
+      "front": "Why does the amount of energy in an incident matter?",
+      "back": "More energy transferred to the body means a higher chance of serious, hidden injury.",
+      "tags": [
+        "construction",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f352",
+      "domainId": "assessment",
+      "front": "How does assessing a young child differ?",
+      "back": "Involve the caregiver, keep calm, and you may examine toe to head to build trust.",
+      "tags": []
+    },
+    {
+      "id": "f353",
+      "domainId": "assessment",
+      "front": "Why record the time with each set of findings?",
+      "back": "Trends over time reveal whether the patient is improving or getting worse.",
+      "tags": []
+    },
+    {
+      "id": "f354",
+      "domainId": "assessment",
+      "front": "What is the first priority on reaching any patient?",
+      "back": "Confirming the scene is safe for you and the patient.",
+      "tags": []
+    },
+    {
+      "id": "f355",
+      "domainId": "airway",
+      "front": "Difference between partial and complete airway obstruction?",
+      "back": "Partial allows some air with noise or coughing, complete allows no air, speech, or effective cough.",
+      "tags": []
+    },
+    {
+      "id": "f356",
+      "domainId": "airway",
+      "front": "What does the recovery position achieve?",
+      "back": "It keeps the airway open and lets fluids drain in an unresponsive, breathing patient.",
+      "tags": []
+    },
+    {
+      "id": "f357",
+      "domainId": "airway",
+      "front": "Why limit how long you suction?",
+      "back": "Prolonged suction removes air as well as fluid, so keep each pass brief.",
+      "tags": []
+    },
+    {
+      "id": "f358",
+      "domainId": "airway",
+      "front": "How is an oropharyngeal airway sized?",
+      "back": "Measured from the corner of the mouth to the angle of the jaw, and used only without a gag reflex.",
+      "tags": []
+    },
+    {
+      "id": "f359",
+      "domainId": "airway",
+      "front": "When might a nasopharyngeal airway be used?",
+      "back": "To help keep the airway open when an oral airway is not suitable, if trained.",
+      "tags": []
+    },
+    {
+      "id": "f360",
+      "domainId": "airway",
+      "front": "What makes pocket-mask ventilation effective?",
+      "back": "A good seal on the face and breaths that make the chest visibly rise.",
+      "tags": []
+    },
+    {
+      "id": "f361",
+      "domainId": "airway",
+      "front": "What is the advantage of a bag-valve-mask with two rescuers?",
+      "back": "One holds the seal while the other squeezes, giving better ventilation.",
+      "tags": []
+    },
+    {
+      "id": "f362",
+      "domainId": "airway",
+      "front": "What is a non-rebreather mask used for?",
+      "back": "Delivering a high concentration of oxygen to a breathing patient who needs it, if available.",
+      "tags": []
+    },
+    {
+      "id": "f363",
+      "domainId": "airway",
+      "front": "Why is oxygen a fire risk?",
+      "back": "It makes fire burn faster and hotter, so keep flames and sparks away and secure cylinders.",
+      "tags": [
+        "industrial",
+        "marine"
+      ]
+    },
+    {
+      "id": "f364",
+      "domainId": "airway",
+      "front": "Why is ventilating too fast or too hard harmful?",
+      "back": "It inflates the stomach and raises chest pressure, reducing blood flow.",
+      "tags": []
+    },
+    {
+      "id": "f365",
+      "domainId": "airway",
+      "front": "What is gastric distension during ventilation?",
+      "back": "Air forced into the stomach, which can cause vomiting and reduce lung space.",
+      "tags": []
+    },
+    {
+      "id": "f366",
+      "domainId": "airway",
+      "front": "How do you relieve choking in an infant?",
+      "back": "Alternating back blows and chest thrusts, supporting the head, until it clears or they go limp.",
+      "tags": []
+    },
+    {
+      "id": "f367",
+      "domainId": "airway",
+      "front": "How does choking care change for a pregnant or larger adult?",
+      "back": "Use chest thrusts instead of abdominal thrusts.",
+      "tags": []
+    },
+    {
+      "id": "f368",
+      "domainId": "airway",
+      "front": "How does someone with a stoma breathe?",
+      "back": "Through an opening in the neck, so ventilate at the stoma if needed.",
+      "tags": []
+    },
+    {
+      "id": "f369",
+      "domainId": "airway",
+      "front": "What shows that ventilations are adequate?",
+      "back": "The chest rises with each breath, colour improves, and the rate is appropriate.",
+      "tags": []
+    },
+    {
+      "id": "f370",
+      "domainId": "airway",
+      "front": "Why is a finger sweep done only when the object is visible?",
+      "back": "Blind sweeps can push an object deeper or cause injury.",
+      "tags": []
+    },
+    {
+      "id": "f371",
+      "domainId": "airway",
+      "front": "What position helps a conscious patient breathe easiest?",
+      "back": "Usually sitting upright in whatever position they find most comfortable.",
+      "tags": []
+    },
+    {
+      "id": "f372",
+      "domainId": "airway",
+      "front": "First action if rescue breaths do not make the chest rise?",
+      "back": "Reposition the airway and check the mask seal, then try again.",
+      "tags": []
+    },
+    {
+      "id": "f373",
+      "domainId": "circulation",
+      "front": "Name the three types of external bleeding.",
+      "back": "Arterial, which spurts and is bright red, venous, which flows darker, and capillary, which oozes.",
+      "tags": [
+        "forestry",
+        "construction"
+      ]
+    },
+    {
+      "id": "f374",
+      "domainId": "circulation",
+      "front": "What is a pressure dressing?",
+      "back": "A dressing bound firmly over a wound to maintain pressure and control bleeding.",
+      "tags": []
+    },
+    {
+      "id": "f375",
+      "domainId": "circulation",
+      "front": "What is perfusion?",
+      "back": "The delivery of oxygen-carrying blood to the body's tissues.",
+      "tags": []
+    },
+    {
+      "id": "f376",
+      "domainId": "circulation",
+      "front": "Difference between compensated and decompensated shock?",
+      "back": "In compensated shock the body is still maintaining pressure, in decompensated shock it is failing, a late sign.",
+      "tags": []
+    },
+    {
+      "id": "f377",
+      "domainId": "circulation",
+      "front": "Where do you check a pulse in an infant?",
+      "back": "On the inside of the upper arm, the brachial pulse.",
+      "tags": []
+    },
+    {
+      "id": "f378",
+      "domainId": "circulation",
+      "front": "How are chest compressions done on a child?",
+      "back": "With one or two hands on the centre of the chest, about one third of its depth.",
+      "tags": []
+    },
+    {
+      "id": "f379",
+      "domainId": "circulation",
+      "front": "How are infant compressions done?",
+      "back": "With two thumbs encircling the chest or two fingers, about one third of the depth.",
+      "tags": []
+    },
+    {
+      "id": "f380",
+      "domainId": "circulation",
+      "front": "When is compression-only CPR appropriate?",
+      "back": "When a rescuer is untrained or unwilling to give breaths, continuous compressions still help.",
+      "tags": []
+    },
+    {
+      "id": "f381",
+      "domainId": "circulation",
+      "front": "What is needed to use an AED on a young child?",
+      "back": "Paediatric pads or a dose attenuator if available, otherwise adult pads placed so they do not touch.",
+      "tags": []
+    },
+    {
+      "id": "f382",
+      "domainId": "circulation",
+      "front": "When should an AED not deliver a shock?",
+      "back": "When it advises against one, or when the patient is responsive and breathing normally.",
+      "tags": []
+    },
+    {
+      "id": "f383",
+      "domainId": "circulation",
+      "front": "Why keep compression interruptions under ten seconds?",
+      "back": "Every pause drops the blood flow you have built up.",
+      "tags": []
+    },
+    {
+      "id": "f384",
+      "domainId": "circulation",
+      "front": "Why switch compressors regularly?",
+      "back": "Tired rescuers compress less effectively, so swapping keeps quality high.",
+      "tags": []
+    },
+    {
+      "id": "f385",
+      "domainId": "circulation",
+      "front": "Why must CPR be done on a firm, flat surface?",
+      "back": "A soft surface absorbs the compression instead of the chest.",
+      "tags": []
+    },
+    {
+      "id": "f386",
+      "domainId": "circulation",
+      "front": "Care after a patient regains a pulse?",
+      "back": "Monitor closely, support breathing, place in the recovery position if unresponsive, and keep them warm.",
+      "tags": []
+    },
+    {
+      "id": "f387",
+      "domainId": "circulation",
+      "front": "When can you assist a patient with their own nitroglycerin?",
+      "back": "For their diagnosed heart condition, if it is within your scope and there is no contraindication.",
+      "tags": []
+    },
+    {
+      "id": "f388",
+      "domainId": "circulation",
+      "front": "Where can serious internal bleeding collect?",
+      "back": "In the chest, abdomen, pelvis, and around a broken thigh bone.",
+      "tags": [
+        "construction",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f389",
+      "domainId": "circulation",
+      "front": "Signs that point to internal bleeding?",
+      "back": "Shock with no external wound, a swollen or rigid abdomen, and bruising over the trunk.",
+      "tags": []
+    },
+    {
+      "id": "f390",
+      "domainId": "circulation",
+      "front": "Steps to control a nosebleed?",
+      "back": "Sit the patient leaning slightly forward and pinch the soft part of the nose firmly for several minutes.",
+      "tags": []
+    },
+    {
+      "id": "f391",
+      "domainId": "circulation",
+      "front": "How do you care for an amputated part?",
+      "back": "Wrap it in clean material, keep it cool but not frozen, and send it with the patient.",
+      "tags": [
+        "forestry",
+        "industrial"
+      ]
+    },
+    {
+      "id": "f392",
+      "domainId": "circulation",
+      "front": "Best position for a patient in shock with no spinal concern?",
+      "back": "Lying flat and kept warm.",
+      "tags": []
+    },
+    {
+      "id": "f393",
+      "domainId": "circulation",
+      "front": "Why does early CPR matter so much?",
+      "back": "Prompt, good CPR keeps the brain and heart supplied and greatly improves survival.",
+      "tags": []
+    },
+    {
+      "id": "f394",
+      "domainId": "circulation",
+      "front": "What is a capillary refill check?",
+      "back": "Pressing a nail bed and timing the return of colour, which should be about two seconds.",
+      "tags": []
+    },
+    {
+      "id": "f395",
+      "domainId": "spine",
+      "front": "Name the regions of the spine from top down.",
+      "back": "Cervical in the neck, thoracic in the chest, and lumbar in the lower back.",
+      "tags": []
+    },
+    {
+      "id": "f396",
+      "domainId": "spine",
+      "front": "What is manual in-line stabilisation?",
+      "back": "Holding the head still and aligned with the body using your hands.",
+      "tags": []
+    },
+    {
+      "id": "f397",
+      "domainId": "spine",
+      "front": "What is a neutral head position?",
+      "back": "The head aligned with the body, eyes forward, not bent or turned.",
+      "tags": []
+    },
+    {
+      "id": "f398",
+      "domainId": "spine",
+      "front": "When do you stop moving the head toward neutral?",
+      "back": "If you meet resistance, or it causes pain or worsening symptoms. Hold it where it is.",
+      "tags": []
+    },
+    {
+      "id": "f399",
+      "domainId": "spine",
+      "front": "Is a collar enough on its own?",
+      "back": "No. A collar is one part of restricting spinal motion, not a complete solution.",
+      "tags": []
+    },
+    {
+      "id": "f400",
+      "domainId": "spine",
+      "front": "Who commands a log roll?",
+      "back": "The person holding the head, so the body turns together.",
+      "tags": []
+    },
+    {
+      "id": "f401",
+      "domainId": "spine",
+      "front": "What does a secondary neuro check involve?",
+      "back": "Checking movement and sensation in all four limbs and asking about numbness or tingling.",
+      "tags": []
+    },
+    {
+      "id": "f402",
+      "domainId": "spine",
+      "front": "How is a helmet best removed?",
+      "back": "With two trained rescuers, one holding the head while the other removes it, keeping the spine aligned.",
+      "tags": [
+        "film"
+      ]
+    },
+    {
+      "id": "f403",
+      "domainId": "spine",
+      "front": "Why pad under a small child during spinal care?",
+      "back": "Their large head would otherwise push the neck into flexion, so padding under the body keeps it neutral.",
+      "tags": []
+    },
+    {
+      "id": "f404",
+      "domainId": "spine",
+      "front": "Why are older patients at higher spinal risk?",
+      "back": "Bones and ligaments are more fragile, so even low-energy falls can injure the spine.",
+      "tags": []
+    },
+    {
+      "id": "f405",
+      "domainId": "spine",
+      "front": "Signs that suggest a skull fracture?",
+      "back": "Bruising around the eyes or behind the ears, or clear or bloody fluid from the nose or ears.",
+      "tags": []
+    },
+    {
+      "id": "f406",
+      "domainId": "spine",
+      "front": "Why not stop fluid draining from the ear after a head injury?",
+      "back": "Blocking it can raise pressure inside the skull. Cover lightly to absorb, do not pack.",
+      "tags": []
+    },
+    {
+      "id": "f407",
+      "domainId": "spine",
+      "front": "Signs of rising pressure in the skull?",
+      "back": "Falling responsiveness, vomiting, unequal pupils, and changes in breathing.",
+      "tags": []
+    },
+    {
+      "id": "f408",
+      "domainId": "spine",
+      "front": "When can someone return to activity after a concussion?",
+      "back": "Only after rest and medical clearance, never the same day.",
+      "tags": [
+        "film"
+      ]
+    },
+    {
+      "id": "f409",
+      "domainId": "spine",
+      "front": "What body signs can indicate a spinal cord injury?",
+      "back": "Loss of movement or sensation, and loss of bladder or bowel control.",
+      "tags": []
+    },
+    {
+      "id": "f410",
+      "domainId": "spine",
+      "front": "Does the absence of neck pain rule out a spinal injury?",
+      "back": "No. Distracting injuries or altered consciousness can mask it, so judge by mechanism.",
+      "tags": []
+    },
+    {
+      "id": "f411",
+      "domainId": "trauma",
+      "front": "Why does understanding how an injury happened help?",
+      "back": "The forces involved predict the injuries you should look for, including hidden ones.",
+      "tags": [
+        "construction",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f412",
+      "domainId": "trauma",
+      "front": "Care for a simple rib fracture?",
+      "back": "Support the chest, encourage breathing despite pain, watch breathing, and arrange care.",
+      "tags": []
+    },
+    {
+      "id": "f413",
+      "domainId": "trauma",
+      "front": "What is a flail chest?",
+      "back": "A segment of ribs broken in several places that moves opposite to the rest of the chest.",
+      "tags": []
+    },
+    {
+      "id": "f414",
+      "domainId": "trauma",
+      "front": "What is a tension build-up in the chest a sign of?",
+      "back": "A life-threatening chest injury with worsening breathing and shock, needing rapid transport.",
+      "tags": []
+    },
+    {
+      "id": "f415",
+      "domainId": "trauma",
+      "front": "Care for an open chest wound?",
+      "back": "Cover it, monitor breathing closely, and arrange rapid transport.",
+      "tags": []
+    },
+    {
+      "id": "f416",
+      "domainId": "trauma",
+      "front": "Care for exposed abdominal organs?",
+      "back": "Do not push them in. Cover with a moist clean dressing and transport rapidly.",
+      "tags": []
+    },
+    {
+      "id": "f417",
+      "domainId": "trauma",
+      "front": "What does a rigid, guarded abdomen after trauma suggest?",
+      "back": "Internal bleeding or organ injury. Treat for shock and transport.",
+      "tags": [
+        "construction"
+      ]
+    },
+    {
+      "id": "f418",
+      "domainId": "trauma",
+      "front": "Why is a pelvic fracture dangerous?",
+      "back": "It can bleed heavily into the pelvis. Handle gently, minimise movement, and transport rapidly.",
+      "tags": [
+        "construction",
+        "industrial"
+      ]
+    },
+    {
+      "id": "f419",
+      "domainId": "trauma",
+      "front": "Care for an impaled object?",
+      "back": "Leave it in place and stabilise it with bulky dressings.",
+      "tags": [
+        "forestry",
+        "construction"
+      ]
+    },
+    {
+      "id": "f420",
+      "domainId": "trauma",
+      "front": "Why not probe a penetrating wound?",
+      "back": "Probing can cause more bleeding and damage. Control bleeding at the surface and transport.",
+      "tags": []
+    },
+    {
+      "id": "f421",
+      "domainId": "trauma",
+      "front": "Care for an injury to the eyeball itself?",
+      "back": "Do not press or remove anything. Protect both eyes and transport urgently.",
+      "tags": []
+    },
+    {
+      "id": "f422",
+      "domainId": "trauma",
+      "front": "Why is major trauma usually a rapid transport case?",
+      "back": "It cannot be fixed in the field. Only critical interventions help before hospital.",
+      "tags": []
+    },
+    {
+      "id": "f423",
+      "domainId": "trauma",
+      "front": "Care for a knocked-out adult tooth?",
+      "back": "Hold it by the crown, keep it moist in milk or saliva, and seek dental care quickly.",
+      "tags": []
+    },
+    {
+      "id": "f424",
+      "domainId": "trauma",
+      "front": "Why is a high-pressure injection injury serious despite a tiny wound?",
+      "back": "Material forced under the skin can cause severe deep damage. It needs urgent surgical care.",
+      "tags": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "f425",
+      "domainId": "trauma",
+      "front": "Care for a partially severed body part?",
+      "back": "Control bleeding, support the part in place, and arrange urgent transport.",
+      "tags": []
+    },
+    {
+      "id": "f426",
+      "domainId": "trauma",
+      "front": "First concern with severe facial injury?",
+      "back": "The airway, which blood, swelling, or broken structures can block.",
+      "tags": []
+    },
+    {
+      "id": "f427",
+      "domainId": "trauma",
+      "front": "Care for a degloving injury?",
+      "back": "Control bleeding, cover with a moist clean dressing, keep any tissue, and transport urgently.",
+      "tags": [
+        "industrial",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f428",
+      "domainId": "trauma",
+      "front": "Why suspect multiple injuries in a high fall?",
+      "back": "The energy is distributed through the body, commonly injuring the spine, pelvis, and limbs.",
+      "tags": [
+        "construction"
+      ]
+    },
+    {
+      "id": "f429",
+      "domainId": "msk",
+      "front": "Difference between an open and closed fracture?",
+      "back": "An open fracture has a wound to the bone, a closed fracture has intact skin.",
+      "tags": []
+    },
+    {
+      "id": "f430",
+      "domainId": "msk",
+      "front": "Common signs of a fracture?",
+      "back": "Pain, swelling, deformity, inability to use the part, and sometimes a grating feeling.",
+      "tags": []
+    },
+    {
+      "id": "f431",
+      "domainId": "msk",
+      "front": "Why immobilise the joints above and below a fracture?",
+      "back": "To stop movement at the broken bone and reduce pain and further injury.",
+      "tags": []
+    },
+    {
+      "id": "f432",
+      "domainId": "msk",
+      "front": "What must you check before and after splinting?",
+      "back": "Circulation, sensation, and movement beyond the injury.",
+      "tags": [
+        "wilderness",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f433",
+      "domainId": "msk",
+      "front": "When might you realign a deformed limb?",
+      "back": "Only if circulation beyond it is lost and you are trained to do so.",
+      "tags": []
+    },
+    {
+      "id": "f434",
+      "domainId": "msk",
+      "front": "What is a traction splint used for?",
+      "back": "Stabilising certain thigh-bone fractures by applying gentle pull, if trained and equipped.",
+      "tags": [
+        "forestry",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f435",
+      "domainId": "msk",
+      "front": "What is a sling and swathe for?",
+      "back": "A sling supports the arm and a swathe binds it to the body to limit movement.",
+      "tags": []
+    },
+    {
+      "id": "f436",
+      "domainId": "msk",
+      "front": "Why is a femur fracture a concern beyond the bone?",
+      "back": "It can bleed significantly into the thigh, contributing to shock.",
+      "tags": []
+    },
+    {
+      "id": "f437",
+      "domainId": "msk",
+      "front": "Care for a suspected broken collarbone?",
+      "back": "Support the arm in a sling against the body and arrange care.",
+      "tags": []
+    },
+    {
+      "id": "f438",
+      "domainId": "msk",
+      "front": "How can you support an injured finger?",
+      "back": "Buddy tape it to the neighbouring finger if appropriate, and check circulation.",
+      "tags": []
+    },
+    {
+      "id": "f439",
+      "domainId": "msk",
+      "front": "Care for a painful, swollen ankle that cannot bear weight?",
+      "back": "Immobilise it, keep weight off it, apply cold, and arrange assessment.",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f440",
+      "domainId": "msk",
+      "front": "Should you relocate a dislocated joint in the field?",
+      "back": "No. Support it as found, check circulation, and transport.",
+      "tags": []
+    },
+    {
+      "id": "f441",
+      "domainId": "msk",
+      "front": "Why do older people fracture from minor falls?",
+      "back": "Their bones are more fragile, so low-energy falls can break them.",
+      "tags": []
+    },
+    {
+      "id": "f442",
+      "domainId": "msk",
+      "front": "Principles of an improvised splint?",
+      "back": "Rigid enough to support, padded, long enough to span the joints above and below, and not too tight.",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f443",
+      "domainId": "msk",
+      "front": "Why immobilise a limb in the position found?",
+      "back": "Moving it can worsen damage, so support it as it lies unless circulation is lost.",
+      "tags": []
+    },
+    {
+      "id": "f444",
+      "domainId": "msk",
+      "front": "What is RICE for and what does it stand for?",
+      "back": "Minor sprains and strains: Rest, Ice, Compression, Elevation.",
+      "tags": []
+    },
+    {
+      "id": "f445",
+      "domainId": "softtissue",
+      "front": "Name common open wound types.",
+      "back": "Abrasions, lacerations, incisions, punctures, avulsions, and amputations.",
+      "tags": []
+    },
+    {
+      "id": "f446",
+      "domainId": "softtissue",
+      "front": "What is a closed wound?",
+      "back": "Damage under intact skin, such as a bruise or a collection of blood called a hematoma.",
+      "tags": []
+    },
+    {
+      "id": "f447",
+      "domainId": "softtissue",
+      "front": "Why irrigate a wound with clean water?",
+      "back": "To flush out dirt and bacteria and lower the risk of infection.",
+      "tags": [
+        "wilderness",
+        "marine"
+      ]
+    },
+    {
+      "id": "f448",
+      "domainId": "softtissue",
+      "front": "What is an occlusive dressing used for?",
+      "back": "Sealing certain wounds, such as on the chest, to control air or fluid.",
+      "tags": []
+    },
+    {
+      "id": "f449",
+      "domainId": "softtissue",
+      "front": "What is a triangular bandage used for?",
+      "back": "Slings, securing dressings, and improvised padding or ties.",
+      "tags": []
+    },
+    {
+      "id": "f450",
+      "domainId": "softtissue",
+      "front": "What does spreading redness or a red streak from a wound mean?",
+      "back": "Spreading infection, which needs prompt medical care.",
+      "tags": []
+    },
+    {
+      "id": "f451",
+      "domainId": "softtissue",
+      "front": "Which wounds raise tetanus concern?",
+      "back": "Dirty wounds and punctures. Advise the patient to check their tetanus status.",
+      "tags": []
+    },
+    {
+      "id": "f452",
+      "domainId": "softtissue",
+      "front": "Why are bites high risk?",
+      "back": "They drive bacteria deep and often become infected, so clean well and seek care.",
+      "tags": [
+        "wilderness",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f453",
+      "domainId": "softtissue",
+      "front": "When do you leave an embedded object in a wound?",
+      "back": "When it is large or deep. Stabilise it rather than removing it.",
+      "tags": []
+    },
+    {
+      "id": "f454",
+      "domainId": "softtissue",
+      "front": "Care for a skin tear in an older person?",
+      "back": "Gently realign the flap if possible, cover with a non-adherent dressing, and protect the fragile skin.",
+      "tags": []
+    },
+    {
+      "id": "f455",
+      "domainId": "softtissue",
+      "front": "Care for road rash or a large abrasion?",
+      "back": "Clean it thoroughly to remove grit, cover it, and watch for infection.",
+      "tags": []
+    },
+    {
+      "id": "f456",
+      "domainId": "softtissue",
+      "front": "Why cover a wound after cleaning?",
+      "back": "A clean dressing protects it from contamination and helps it heal.",
+      "tags": []
+    },
+    {
+      "id": "f457",
+      "domainId": "environment",
+      "front": "How does the body normally manage its temperature?",
+      "back": "By balancing heat production and heat loss, which extreme conditions can overwhelm.",
+      "tags": []
+    },
+    {
+      "id": "f458",
+      "domainId": "environment",
+      "front": "Early signs of hypothermia?",
+      "back": "Shivering, clumsiness, slow thinking, and withdrawal.",
+      "tags": [
+        "marine",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f459",
+      "domainId": "environment",
+      "front": "Why handle a severely hypothermic patient gently?",
+      "back": "The cold heart is prone to dangerous rhythms that rough handling can trigger.",
+      "tags": [
+        "marine",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f460",
+      "domainId": "environment",
+      "front": "Field rewarming for mild hypothermia?",
+      "back": "Shelter, remove wet clothing, insulate, add dry layers, and offer warm sweet drinks if fully alert.",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f461",
+      "domainId": "environment",
+      "front": "Difference between frostnip and frostbite?",
+      "back": "Frostnip is superficial and reversible, frostbite is actual freezing of tissue.",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f462",
+      "domainId": "environment",
+      "front": "What is a non-freezing cold injury such as immersion foot?",
+      "back": "Damage from prolonged cold and wet without freezing, causing pain, numbness, and swelling.",
+      "tags": [
+        "marine",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f463",
+      "domainId": "environment",
+      "front": "What happens in the first minute of cold water immersion?",
+      "back": "A gasp and rapid breathing that can cause drowning. Keep the airway above water.",
+      "tags": [
+        "marine"
+      ]
+    },
+    {
+      "id": "f464",
+      "domainId": "environment",
+      "front": "What are heat cramps?",
+      "back": "Painful muscle cramps from heat and fluid loss. Rest, cool, and rehydrate.",
+      "tags": []
+    },
+    {
+      "id": "f465",
+      "domainId": "environment",
+      "front": "Signs of heat exhaustion?",
+      "back": "Heavy sweating, weakness, nausea, headache, and cool clammy skin.",
+      "tags": []
+    },
+    {
+      "id": "f466",
+      "domainId": "environment",
+      "front": "Why is heat stroke an emergency?",
+      "back": "The body can no longer cool itself, with hot skin and confusion. Cool aggressively and transport.",
+      "tags": []
+    },
+    {
+      "id": "f467",
+      "domainId": "environment",
+      "front": "First step for any burn?",
+      "back": "Stop the burning process, then cool the burn.",
+      "tags": []
+    },
+    {
+      "id": "f468",
+      "domainId": "environment",
+      "front": "How long do you cool a thermal burn?",
+      "back": "About twenty minutes with clean cool running water. Do not use ice.",
+      "tags": [
+        "industrial",
+        "film"
+      ]
+    },
+    {
+      "id": "f469",
+      "domainId": "environment",
+      "front": "Care for a dry chemical on the skin?",
+      "back": "Brush off the dry chemical first, then flush with water, and remove contaminated clothing.",
+      "tags": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "f470",
+      "domainId": "environment",
+      "front": "Why are electrical burns deceptive?",
+      "back": "The surface wound can be small while deep tissue and the heart are seriously affected.",
+      "tags": [
+        "industrial",
+        "construction"
+      ]
+    },
+    {
+      "id": "f471",
+      "domainId": "environment",
+      "front": "How does triage differ at a lightning strike with several casualties?",
+      "back": "Treat the apparently lifeless first, since they may respond to CPR.",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "f472",
+      "domainId": "environment",
+      "front": "Why does a near drowning patient need assessment even if they feel fine?",
+      "back": "Breathing can deteriorate over the following hours.",
+      "tags": [
+        "marine"
+      ]
+    },
+    {
+      "id": "f473",
+      "domainId": "environment",
+      "front": "Signs of diving decompression illness?",
+      "back": "Joint pain, rash, weakness, numbness, or breathing trouble after a dive. Give oxygen and transport.",
+      "tags": [
+        "marine"
+      ]
+    },
+    {
+      "id": "f474",
+      "domainId": "environment",
+      "front": "Why do toxic gases often produce several patients at once?",
+      "back": "Everyone in the space is exposed, so multiple casualties signal a gas hazard. Do not enter unprotected.",
+      "tags": [
+        "industrial",
+        "marine"
+      ]
+    },
+    {
+      "id": "f475",
+      "domainId": "medical",
+      "front": "How do you assess chest pain?",
+      "back": "Using OPQRST to describe onset, what brings it on, its quality, where it is, how severe, and timing.",
+      "tags": []
+    },
+    {
+      "id": "f476",
+      "domainId": "medical",
+      "front": "Difference between angina and a heart attack?",
+      "back": "Angina pain often eases with rest, a heart attack is usually more severe and does not ease.",
+      "tags": []
+    },
+    {
+      "id": "f477",
+      "domainId": "medical",
+      "front": "When can you help with a patient's nitroglycerin?",
+      "back": "For their diagnosed condition, within your scope, and if there is no contraindication.",
+      "tags": []
+    },
+    {
+      "id": "f478",
+      "domainId": "medical",
+      "front": "When can aspirin help in a suspected heart attack?",
+      "back": "For a conscious adult with no allergy or contraindication, if within scope and they agree.",
+      "tags": []
+    },
+    {
+      "id": "f479",
+      "domainId": "medical",
+      "front": "What does BE-FAST check for stroke?",
+      "back": "Balance, Eyes, Face, Arms, Speech, and Time.",
+      "tags": []
+    },
+    {
+      "id": "f480",
+      "domainId": "medical",
+      "front": "Is a brief stroke-like episode that resolves still serious?",
+      "back": "Yes. A mini-stroke is a warning that needs urgent assessment.",
+      "tags": []
+    },
+    {
+      "id": "f481",
+      "domainId": "medical",
+      "front": "Care during a generalised seizure?",
+      "back": "Protect from injury, do not restrain or put anything in the mouth, and time it.",
+      "tags": []
+    },
+    {
+      "id": "f482",
+      "domainId": "medical",
+      "front": "When is a seizure a medical emergency by duration?",
+      "back": "When it lasts beyond a few minutes or repeats without recovery between.",
+      "tags": []
+    },
+    {
+      "id": "f483",
+      "domainId": "medical",
+      "front": "Care after a seizure ends?",
+      "back": "Place on the side, keep the airway clear, reassure, and monitor recovery.",
+      "tags": []
+    },
+    {
+      "id": "f484",
+      "domainId": "medical",
+      "front": "What is a febrile seizure?",
+      "back": "A seizure in a young child from a high fever. Protect them, cool gently, and seek care.",
+      "tags": []
+    },
+    {
+      "id": "f485",
+      "domainId": "medical",
+      "front": "Signs of low blood sugar?",
+      "back": "Confusion, sweating, shakiness, and hunger, often with a known diabetic.",
+      "tags": []
+    },
+    {
+      "id": "f486",
+      "domainId": "medical",
+      "front": "Care for low blood sugar in an alert patient?",
+      "back": "Give a fast sugar such as juice and monitor.",
+      "tags": []
+    },
+    {
+      "id": "f487",
+      "domainId": "medical",
+      "front": "Signs of high blood sugar developing over time?",
+      "back": "Thirst, frequent urination, and drowsiness. Arrange medical care.",
+      "tags": []
+    },
+    {
+      "id": "f488",
+      "domainId": "medical",
+      "front": "How do you help an asthma patient?",
+      "back": "Help them sit up and use their prescribed inhaler, and get help if it does not improve.",
+      "tags": []
+    },
+    {
+      "id": "f489",
+      "domainId": "medical",
+      "front": "Key care point for a COPD patient in distress?",
+      "back": "Help them sit up, assist their inhaler, and arrange care if they worsen.",
+      "tags": []
+    },
+    {
+      "id": "f490",
+      "domainId": "medical",
+      "front": "What is biphasic anaphylaxis?",
+      "back": "A return of severe allergic symptoms hours after the first reaction, so monitoring and transport are essential.",
+      "tags": []
+    },
+    {
+      "id": "f491",
+      "domainId": "medical",
+      "front": "Four routes a poison can enter the body?",
+      "back": "Swallowed, inhaled, absorbed through skin, or injected.",
+      "tags": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "f492",
+      "domainId": "medical",
+      "front": "Signs of a suspected opioid overdose?",
+      "back": "Very slow or absent breathing, tiny pupils, and unresponsiveness.",
+      "tags": []
+    },
+    {
+      "id": "f493",
+      "domainId": "medical",
+      "front": "Care for severe abdominal pain?",
+      "back": "Keep the patient comfortable, nothing by mouth, watch for shock, and arrange assessment.",
+      "tags": []
+    },
+    {
+      "id": "f494",
+      "domainId": "medical",
+      "front": "Why reassess after a faint?",
+      "back": "To rule out a serious cause and catch a slow or repeated episode.",
+      "tags": []
+    },
+    {
+      "id": "f495",
+      "domainId": "mental",
+      "front": "Are strong reactions after a difficult call normal?",
+      "back": "Yes. They are a normal response and not a weakness.",
+      "tags": []
+    },
+    {
+      "id": "f496",
+      "domainId": "mental",
+      "front": "What is critical incident stress?",
+      "back": "The strong reaction responders can have after a distressing event, sometimes days later.",
+      "tags": []
+    },
+    {
+      "id": "f497",
+      "domainId": "mental",
+      "front": "First steps in de-escalating an agitated person?",
+      "back": "Stay calm, keep a safe distance, speak slowly, and listen.",
+      "tags": []
+    },
+    {
+      "id": "f498",
+      "domainId": "mental",
+      "front": "How do you stay safe with a possibly violent patient?",
+      "back": "Keep distance and an exit, do not turn your back, and get help.",
+      "tags": [
+        "industrial",
+        "construction"
+      ]
+    },
+    {
+      "id": "f499",
+      "domainId": "mental",
+      "front": "How do you respond to someone who may be suicidal?",
+      "back": "Take it seriously, stay with them, listen, and get professional help.",
+      "tags": []
+    },
+    {
+      "id": "f500",
+      "domainId": "mental",
+      "front": "Should you promise confidentiality in a mental health crisis?",
+      "back": "No. Focus on safety and connecting them to help rather than making promises.",
+      "tags": []
+    },
+    {
+      "id": "f501",
+      "domainId": "mental",
+      "front": "How do you help during a panic attack?",
+      "back": "Reassure calmly, coach slow breathing, and rule out a physical cause.",
+      "tags": []
+    },
+    {
+      "id": "f502",
+      "domainId": "mental",
+      "front": "Care for an intoxicated, drowsy patient?",
+      "back": "Protect the airway, place on the side, monitor breathing, and watch for hidden injury.",
+      "tags": []
+    },
+    {
+      "id": "f503",
+      "domainId": "mental",
+      "front": "Why does the attendant need self-care after hard calls?",
+      "back": "So stress does not accumulate and they can keep responding.",
+      "tags": []
+    },
+    {
+      "id": "f504",
+      "domainId": "mental",
+      "front": "When is physical restraint considered?",
+      "back": "Only as a last resort for safety, within legal limits, and never as routine.",
+      "tags": []
+    },
+    {
+      "id": "f505",
+      "domainId": "transport",
+      "front": "What drives the transport decision?",
+      "back": "How sick or injured the patient is, and how far away definitive care is.",
+      "tags": [
+        "wilderness",
+        "marine"
+      ]
+    },
+    {
+      "id": "f506",
+      "domainId": "transport",
+      "front": "What defines a time-critical transport?",
+      "back": "An injury or illness where delay worsens the outcome, calling for rapid transport.",
+      "tags": []
+    },
+    {
+      "id": "f507",
+      "domainId": "transport",
+      "front": "What is packaging?",
+      "back": "Securing and protecting a patient on a carrying device for safe movement.",
+      "tags": []
+    },
+    {
+      "id": "f508",
+      "domainId": "transport",
+      "front": "When is a basket stretcher useful?",
+      "back": "For carrying a patient over rough or steep terrain.",
+      "tags": [
+        "wilderness",
+        "forestry"
+      ]
+    },
+    {
+      "id": "f509",
+      "domainId": "transport",
+      "front": "What is a scoop stretcher for?",
+      "back": "Lifting a patient with minimal movement by splitting and joining around them.",
+      "tags": []
+    },
+    {
+      "id": "f510",
+      "domainId": "transport",
+      "front": "What is a vacuum mattress used for?",
+      "back": "Immobilising a patient by moulding to their body when the air is removed.",
+      "tags": []
+    },
+    {
+      "id": "f511",
+      "domainId": "transport",
+      "front": "Difference between an emergency move and a non-urgent move?",
+      "back": "An emergency move is done at once for danger, accepting some risk, a non-urgent move is planned and careful.",
+      "tags": []
+    },
+    {
+      "id": "f512",
+      "domainId": "transport",
+      "front": "When is an emergency move justified?",
+      "back": "When the scene is immediately dangerous or you must reach a life threat you cannot otherwise.",
+      "tags": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "f513",
+      "domainId": "transport",
+      "front": "Key safety rule near a helicopter?",
+      "back": "Approach only when signalled, from the front in the pilot's view, and stay low.",
+      "tags": [
+        "wilderness",
+        "marine"
+      ]
+    },
+    {
+      "id": "f514",
+      "domainId": "transport",
+      "front": "A concern when moving a patient by boat?",
+      "back": "Keeping them warm, secure, and monitored, and protecting the airway from motion and water.",
+      "tags": [
+        "marine"
+      ]
+    },
+    {
+      "id": "f515",
+      "domainId": "transport",
+      "front": "What is a transport endorsement?",
+      "back": "An added qualification to accompany and care for a patient during transport.",
+      "tags": [
+        "forestry",
+        "industrial"
+      ]
+    },
+    {
+      "id": "f516",
+      "domainId": "transport",
+      "front": "What should a handover to EMS include?",
+      "back": "Number, location, and nature first, then what happened, what you found, what you did, and changes.",
+      "tags": []
+    },
+    {
+      "id": "f517",
+      "domainId": "transport",
+      "front": "How do you position a patient who is unresponsive but breathing for transport?",
+      "back": "On their side in the recovery position to protect the airway.",
+      "tags": []
+    },
+    {
+      "id": "f518",
+      "domainId": "transport",
+      "front": "Why keep a patient warm during a long evacuation?",
+      "back": "Cold worsens shock and slows recovery.",
+      "tags": [
+        "wilderness",
+        "marine"
+      ]
+    },
+    {
+      "id": "f519",
+      "domainId": "transport",
+      "front": "Why move a patient as few times as possible?",
+      "back": "Each move risks further injury and uses time, so plan and minimise moves.",
+      "tags": []
+    },
+    {
+      "id": "f520",
+      "domainId": "transport",
+      "front": "Why reassess during transport?",
+      "back": "Patients can deteriorate while moving and remain your responsibility.",
+      "tags": []
+    },
+    {
+      "id": "f521",
+      "domainId": "infection",
+      "front": "What are standard precautions?",
+      "back": "Treating everyone's blood and body fluids as potentially infectious and protecting yourself accordingly.",
+      "tags": []
+    },
+    {
+      "id": "f522",
+      "domainId": "infection",
+      "front": "Common personal protective equipment in first aid?",
+      "back": "Gloves, and where needed eye protection, a mask, and a barrier device for breaths.",
+      "tags": []
+    },
+    {
+      "id": "f523",
+      "domainId": "infection",
+      "front": "How do you remove gloves safely?",
+      "back": "Peel them off without touching the outside, then wash your hands.",
+      "tags": []
+    },
+    {
+      "id": "f524",
+      "domainId": "infection",
+      "front": "Why is hand hygiene central to infection control?",
+      "back": "Clean hands before and after care reduce the spread of infection.",
+      "tags": []
+    },
+    {
+      "id": "f525",
+      "domainId": "infection",
+      "front": "Name bloodborne pathogens of concern.",
+      "back": "Those causing hepatitis B, hepatitis C, and HIV.",
+      "tags": []
+    },
+    {
+      "id": "f526",
+      "domainId": "infection",
+      "front": "What should you do after a blood or fluid exposure?",
+      "back": "Wash the area, report the exposure promptly, and follow up for assessment.",
+      "tags": []
+    },
+    {
+      "id": "f527",
+      "domainId": "infection",
+      "front": "Why dispose of sharps carefully?",
+      "back": "To prevent injury and infection to you and others.",
+      "tags": []
+    },
+    {
+      "id": "f528",
+      "domainId": "infection",
+      "front": "What are the stages of labour in brief?",
+      "back": "Contractions and opening, delivery of the baby, then delivery of the placenta.",
+      "tags": []
+    },
+    {
+      "id": "f529",
+      "domainId": "infection",
+      "front": "Priorities right after a baby is born?",
+      "back": "Dry and warm the baby, ensure it is breathing, and keep mother and baby together.",
+      "tags": []
+    },
+    {
+      "id": "f530",
+      "domainId": "infection",
+      "front": "What if a newborn is not breathing?",
+      "back": "Dry and stimulate it, keep it warm, and begin newborn resuscitation while help is arranged.",
+      "tags": []
+    },
+    {
+      "id": "f531",
+      "domainId": "infection",
+      "front": "Care for heavy bleeding after the placenta delivers?",
+      "back": "Keep the mother warm, monitor her, and arrange urgent transport.",
+      "tags": []
+    },
+    {
+      "id": "f532",
+      "domainId": "infection",
+      "front": "Why use gloves and barriers during childbirth?",
+      "back": "Because there is contact with body fluids.",
       "tags": []
     }
   ],
@@ -9319,6 +10957,1512 @@ window.AFA_CONTENT = {
           "choices": []
         }
       }
+    },
+    {
+      "id": "s41",
+      "title": "Nosebleed that will not stop",
+      "domainIds": [
+        "circulation",
+        "medical"
+      ],
+      "tags": [
+        "industrial",
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker on blood thinners has a heavy nosebleed that has run for ten minutes.",
+          "choices": [
+            {
+              "label": "Sit them leaning slightly forward and pinch the soft part of the nose firmly",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Tip their head back",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Tipping back sends blood down the throat. Lean forward and pinch."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "They start swallowing blood and gag. Reposition.",
+          "choices": [
+            {
+              "label": "Lean forward and pinch the nose",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "After steady pressure it slows but does not fully stop, and they are on anticoagulants.",
+          "choices": [
+            {
+              "label": "Maintain pressure and arrange medical assessment given the blood thinners",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Send them back to work once it slows",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "On blood thinners a persistent bleed needs assessment."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Correct positioning, steady pressure, and a sensible referral. Well handled.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "On anticoagulants this needs assessment rather than a quick return to work.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s42",
+      "title": "Asthma attack on set",
+      "domainIds": [
+        "medical",
+        "airway"
+      ],
+      "tags": [
+        "film"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A crew member is wheezing and struggling to breathe and says they have asthma.",
+          "choices": [
+            {
+              "label": "Help them sit upright and use their own prescribed inhaler",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Lay them flat",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Lying flat makes breathing harder. Sit them up."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "They breathe worse lying down. Sit them up.",
+          "choices": [
+            {
+              "label": "Sit them up and assist their inhaler",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "After the inhaler they are still labouring and tiring.",
+          "choices": [
+            {
+              "label": "Arrange urgent transport and keep assisting as prescribed",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Wait and see for half an hour",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "A severe attack that is not improving needs urgent help."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You supported breathing and escalated when it did not improve. Good call.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "A worsening attack will not wait. Escalate quickly.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s43",
+      "title": "Rebar through the forearm",
+      "domainIds": [
+        "trauma",
+        "circulation",
+        "transport"
+      ],
+      "tags": [
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker falls onto rebar and a length is impaled through the forearm, bleeding.",
+          "choices": [
+            {
+              "label": "Leave the rebar in place and control bleeding around it",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Pull the arm off the rebar",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Removing an impaled object can cause severe bleeding. Stabilise it."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not remove it. Stabilise and control bleeding.",
+          "choices": [
+            {
+              "label": "Stabilise the object and control bleeding",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "Bleeding is controlled with padding around the object.",
+          "choices": [
+            {
+              "label": "Pad and stabilise the object, treat for shock, and arrange transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Wrap it tightly straight over the object",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Stabilise around it without crushing or driving it deeper."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Object stabilised, bleeding controlled, shock managed. Strong work.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Pad around an impaled object to stabilise it, not over it.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s44",
+      "title": "Older worker down after a slip",
+      "domainIds": [
+        "msk",
+        "spine",
+        "transport"
+      ],
+      "tags": [
+        "industrial",
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "An older worker slips and lands hard on one hip, now in severe pain and unable to stand.",
+          "choices": [
+            {
+              "label": "Keep them still, suspect a hip or pelvic fracture, and check for other injury",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Help them up to walk it off",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Do not load a possible hip or pelvic fracture. Keep them still."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Standing causes severe pain. Keep them down.",
+          "choices": [
+            {
+              "label": "Keep them still and assess",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "They have severe hip pain and the mechanism plus age raise concern.",
+          "modeSplit": {
+            "remote": "n3remote",
+            "accessible": "n3urban"
+          }
+        },
+        "n3urban": {
+          "prompt": "EMS can reach you.",
+          "choices": [
+            {
+              "label": "Keep them still and warm, treat for shock, and wait for EMS",
+              "next": "endgood",
+              "score": 3
+            }
+          ]
+        },
+        "n3remote": {
+          "prompt": "You are far from road access.",
+          "choices": [
+            {
+              "label": "Immobilise gently, treat for shock, keep warm, and plan a careful packaged evacuation",
+              "next": "endgood",
+              "score": 4,
+              "feedback": {
+                "type": "good",
+                "text": "You protected a fragile fracture and planned a careful move."
+              }
+            },
+            {
+              "label": "Have them crawl to the truck",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Crawling risks worsening a hip or pelvic injury. Package and carry."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Gentle handling, shock care, and a careful evacuation. Good judgement.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "A hip or pelvic injury needs immobilising and careful movement, not self-rescue.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s45",
+      "title": "Reaction with no auto injector",
+      "domainIds": [
+        "medical",
+        "transport"
+      ],
+      "tags": [
+        "wilderness",
+        "forestry"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker reacts to a sting with swelling lips and wheezing, but has no epinephrine and neither do you.",
+          "choices": [
+            {
+              "label": "Treat as anaphylaxis and arrange the most urgent transport possible",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Assume it will settle since there is no epinephrine to give",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Without epinephrine, rapid transport is even more critical."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "This is life threatening. Act on transport.",
+          "choices": [
+            {
+              "label": "Arrange urgent transport now",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You are arranging transport.",
+          "choices": [
+            {
+              "label": "Keep them calm and upright, monitor breathing, and get them to care as fast as possible",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Have them walk a long trail out alone",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "They could deteriorate suddenly. Keep them with you and bring help to them."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Without epinephrine you maximised speed to care and monitored closely. Right priorities.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "A patient who could collapse should not walk out alone. Keep them with you.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s46",
+      "title": "Adrift and cold for hours",
+      "domainIds": [
+        "environment",
+        "transport"
+      ],
+      "tags": [
+        "marine"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "After an engine failure, a crew member has been cold and wet for hours and is now drowsy and barely shivering.",
+          "choices": [
+            {
+              "label": "Handle very gently and treat as moderate to severe hypothermia",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Rub their limbs hard to warm them",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Rough handling can trigger dangerous heart rhythms when very cold."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Handle gently. Avoid rough rubbing.",
+          "choices": [
+            {
+              "label": "Handle gently and insulate",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You insulate them and shelter them from wind and spray.",
+          "modeSplit": {
+            "remote": "n3remote",
+            "accessible": "n3urban"
+          }
+        },
+        "n3urban": {
+          "prompt": "You can reach port soon.",
+          "choices": [
+            {
+              "label": "Keep insulating, handle gently, monitor, and hand off to EMS",
+              "next": "endgood",
+              "score": 3
+            }
+          ]
+        },
+        "n3remote": {
+          "prompt": "You are many hours out.",
+          "choices": [
+            {
+              "label": "Insulate fully, handle minimally, monitor breathing, and call for guidance and the fastest evacuation",
+              "next": "endgood",
+              "score": 4,
+              "feedback": {
+                "type": "good",
+                "text": "You protected a fragile, very cold patient and built a plan."
+              }
+            },
+            {
+              "label": "Put them to work to warm up",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "A drowsy, barely shivering patient is seriously cold and must be handled gently."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Gentle handling, insulation, and a plan for a long cold evacuation. Good seamanship.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Exertion and rough handling are dangerous in severe hypothermia.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s47",
+      "title": "Shock from a power tool",
+      "domainIds": [
+        "environment",
+        "circulation",
+        "airway"
+      ],
+      "tags": [
+        "construction",
+        "industrial"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker is found collapsed next to a power tool that may still be live.",
+          "choices": [
+            {
+              "label": "Ensure the power is off and the scene is safe before touching them",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Grab them immediately",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Touching a patient still in contact with live power can injure you too."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Make it safe first. Do not become a casualty.",
+          "choices": [
+            {
+              "label": "Confirm power off and scene safe",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "Power is off. They are unresponsive and not breathing normally.",
+          "choices": [
+            {
+              "label": "Start CPR and send for the AED",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Look for the burn first",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Electrical injury can stop the heart. CPR and AED come first."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Scene made safe, then immediate CPR. Exactly right with electrical injury.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Cardiac arrest from electricity needs CPR and the AED before anything else.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s48",
+      "title": "Abdominal wound with exposed organs",
+      "domainIds": [
+        "trauma",
+        "transport"
+      ],
+      "tags": [
+        "industrial",
+        "forestry"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker has a deep abdominal wound and a loop of bowel is exposed.",
+          "choices": [
+            {
+              "label": "Do not push it back, cover with a moist clean dressing",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Push the organs back inside",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Never push organs back in. Cover them moist and clean."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not replace the organs. Cover them.",
+          "choices": [
+            {
+              "label": "Cover with a moist clean dressing",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "This is a rapid transport situation.",
+          "choices": [
+            {
+              "label": "Keep the dressing moist, treat for shock, and arrange rapid transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Do a full secondary survey first",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "This is rapid transport. Critical care only, then move."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Organs protected, shock managed, transport prioritised. Well done.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Do not delay a rapid transport patient with a full workup.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s49",
+      "title": "Diabetic unresponsive",
+      "domainIds": [
+        "medical",
+        "airway"
+      ],
+      "tags": [
+        "forestry",
+        "marine",
+        "industrial"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A known diabetic is now unresponsive and cannot swallow.",
+          "choices": [
+            {
+              "label": "Protect the airway and do not put anything in their mouth",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Pour juice into their mouth",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "An unresponsive patient can choke. Never give anything by mouth."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not give oral sugar to an unresponsive patient.",
+          "choices": [
+            {
+              "label": "Protect the airway instead",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "They are breathing but unresponsive.",
+          "choices": [
+            {
+              "label": "Place in the recovery position, monitor, and arrange urgent transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Sit them up and wait",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Protect the airway with the recovery position and get help."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You protected the airway and got help. Right call for an unresponsive diabetic.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "An unresponsive patient needs the recovery position and urgent transport.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s50",
+      "title": "Pulled from the water, not breathing",
+      "domainIds": [
+        "airway",
+        "circulation",
+        "environment"
+      ],
+      "tags": [
+        "marine",
+        "wilderness"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A person is pulled from the water unresponsive and not breathing.",
+          "choices": [
+            {
+              "label": "Begin CPR, starting with rescue breaths, and send for the AED",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Try to drain water from the lungs first",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Do not waste time trying to drain water. Start CPR."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not delay. Start CPR.",
+          "choices": [
+            {
+              "label": "Begin CPR and send for the AED",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You are doing CPR and the AED arrives.",
+          "choices": [
+            {
+              "label": "Dry the chest, apply the AED, follow prompts, and continue CPR",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Apply the AED to the wet chest without drying",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Dry the chest first so the shock is effective and safe."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Prompt CPR and correct AED use on a wet patient. Lifesaving.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Dry the chest before applying AED pads to a patient from the water.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s51",
+      "title": "Wrist injury after a fall",
+      "domainIds": [
+        "msk"
+      ],
+      "tags": [
+        "construction",
+        "film",
+        "wilderness"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker falls and has a painful, deformed wrist.",
+          "choices": [
+            {
+              "label": "Check circulation and sensation in the hand, then immobilise",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Straighten the wrist forcefully",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Do not force a deformed limb straight in the field."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Support it as found.",
+          "choices": [
+            {
+              "label": "Check circulation and sensation, then immobilise",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You splint it. What confirms the splint is safe?",
+          "choices": [
+            {
+              "label": "Recheck circulation and sensation beyond the splint",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Tighten it as hard as possible",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "A too-tight splint cuts circulation. Recheck the hand."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Immobilised with circulation checked before and after. Textbook.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Check the hand for circulation and feeling. A splint must not be crushing.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s52",
+      "title": "Metal in the eye",
+      "domainIds": [
+        "trauma"
+      ],
+      "tags": [
+        "industrial",
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A grinder throws a fragment and a worker has something stuck in the eye, in pain.",
+          "choices": [
+            {
+              "label": "Do not rub or remove it, protect both eyes and arrange care",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Dig it out with a cloth",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Do not remove an embedded eye object or rub the eye."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Leave it in place and protect the eye.",
+          "choices": [
+            {
+              "label": "Protect both eyes and arrange care",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "Both eyes are covered.",
+          "choices": [
+            {
+              "label": "Keep them calm and transport urgently for eye care",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Have them drive themselves in",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "With both eyes covered they cannot drive. Arrange transport."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Eye protected, both covered, urgent care arranged. Well handled.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "A patient with covered eyes needs transport, not to drive themselves.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s53",
+      "title": "Chemical cloud in the plant",
+      "domainIds": [
+        "environment",
+        "medical",
+        "transport"
+      ],
+      "tags": [
+        "industrial"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A chemical release leaves a worker down inside a vapour cloud.",
+          "choices": [
+            {
+              "label": "Stay out, raise the alarm, and let trained responders with protection enter",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Run in to drag them out",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Entering a toxic atmosphere without protection makes you the next casualty."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not enter unprotected. Get the right team.",
+          "choices": [
+            {
+              "label": "Hold back and summon protected responders",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "The patient is brought to fresh air, struggling to breathe.",
+          "choices": [
+            {
+              "label": "Support breathing, give oxygen if trained, and arrange urgent transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Assume fresh air is enough",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "They need active support and transport, not just air."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You stayed safe and managed the patient correctly. Discipline saves rescuers.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Fresh air alone is not enough after a serious inhalation.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s54",
+      "title": "Bleeding after the birth",
+      "domainIds": [
+        "infection",
+        "circulation"
+      ],
+      "tags": [
+        "wilderness",
+        "marine"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "Far from care, a mother has delivered and the placenta, and is now bleeding heavily.",
+          "choices": [
+            {
+              "label": "Keep her warm, monitor, and arrange urgent transport",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Assume it is normal and relax",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Heavy bleeding after birth is dangerous and needs urgent care."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "This is a serious bleed. Act.",
+          "choices": [
+            {
+              "label": "Keep her warm and arrange urgent transport",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You are caring for mother and baby.",
+          "choices": [
+            {
+              "label": "Keep mother and baby warm together, monitor for shock, and evacuate urgently",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Focus only on the baby",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "The mother's bleeding is the immediate threat. Care for both."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You recognised the postpartum bleed and cared for both. Good work.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Postpartum bleeding is the immediate danger. Keep both warm and evacuate.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s55",
+      "title": "Agitated worker after an incident",
+      "domainIds": [
+        "mental"
+      ],
+      "tags": [
+        "construction",
+        "industrial"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "After a near miss, a worker is shouting, pacing, and clearly agitated near machinery.",
+          "choices": [
+            {
+              "label": "Stay calm, keep distance and an exit, and speak slowly",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Grab them to calm them down",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Grabbing can escalate things and is unsafe. Keep distance and stay calm."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Do not grab them. Keep distance and stay calm.",
+          "choices": [
+            {
+              "label": "Keep distance and speak calmly",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "They begin to settle as you listen.",
+          "choices": [
+            {
+              "label": "Guide them away from hazards and get appropriate support",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Send them back to the machine right away",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Move them from hazards and arrange support before any return to work."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Calm presence, safety first, and a path to support. Well handled.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Get them away from hazards and supported before returning to work.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s56",
+      "title": "Quiet and pale after a fall",
+      "domainIds": [
+        "assessment",
+        "circulation",
+        "transport"
+      ],
+      "tags": [
+        "forestry",
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A worker fell from a height and seems okay at first, but over ten minutes goes pale, anxious, and their pulse climbs.",
+          "choices": [
+            {
+              "label": "Suspect internal bleeding and shock and arrange rapid transport",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Assume they are just shaken",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Rising pulse with pallor after a fall suggests internal bleeding."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "These are signs of shock. Act.",
+          "choices": [
+            {
+              "label": "Treat for shock and arrange transport",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "They are deteriorating with no external bleeding.",
+          "modeSplit": {
+            "remote": "n3remote",
+            "accessible": "n3urban"
+          }
+        },
+        "n3urban": {
+          "prompt": "EMS is close.",
+          "choices": [
+            {
+              "label": "Keep them still and warm, treat for shock, and hand off urgently",
+              "next": "endgood",
+              "score": 3
+            }
+          ]
+        },
+        "n3remote": {
+          "prompt": "You are far from access.",
+          "choices": [
+            {
+              "label": "Treat for shock, keep warm, monitor, and start a rapid planned evacuation",
+              "next": "endgood",
+              "score": 4,
+              "feedback": {
+                "type": "good",
+                "text": "You read hidden internal bleeding and moved early."
+              }
+            },
+            {
+              "label": "Wait to see if they improve",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Internal bleeding does not improve on its own. Evacuate."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You caught hidden internal bleeding from the trend and acted. Sharp work.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Suspected internal bleeding needs urgent evacuation, not waiting.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s57",
+      "title": "Ankle gives out on the ridge",
+      "domainIds": [
+        "msk",
+        "transport"
+      ],
+      "tags": [
+        "wilderness"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "On a remote ridge a worker rolls an ankle badly and cannot bear weight.",
+          "choices": [
+            {
+              "label": "Check circulation and sensation, then immobilise the ankle",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Tell them to push through and keep hiking",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Forcing weight on a serious injury can worsen it. Assess and immobilise."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Assess before deciding. Immobilise.",
+          "choices": [
+            {
+              "label": "Check circulation and immobilise",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "It is immobilised and circulation is intact.",
+          "modeSplit": {
+            "remote": "n3remote",
+            "accessible": "n3urban"
+          }
+        },
+        "n3urban": {
+          "prompt": "A trailhead is close.",
+          "choices": [
+            {
+              "label": "Support them out slowly to the trailhead for assessment",
+              "next": "endgood",
+              "score": 3
+            }
+          ]
+        },
+        "n3remote": {
+          "prompt": "You are hours out.",
+          "choices": [
+            {
+              "label": "Recheck circulation, keep warm, and plan a careful assisted walk or carry to a reachable point",
+              "next": "endgood",
+              "score": 4,
+              "feedback": {
+                "type": "good",
+                "text": "You protected the limb and planned a realistic exit."
+              }
+            },
+            {
+              "label": "Have them hop unaided for hours",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Hours of hopping risks more injury and exhaustion. Plan support."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "Assessed, immobilised, and a realistic exit planned. Good backcountry care.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Plan a supported exit rather than hours of unaided hopping.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s58",
+      "title": "Wilting in the heat",
+      "domainIds": [
+        "environment",
+        "medical"
+      ],
+      "tags": [
+        "forestry",
+        "construction"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "On a hot day a worker is sweating heavily, weak, nauseous, with cool clammy skin.",
+          "choices": [
+            {
+              "label": "Treat as heat exhaustion: rest in shade, cool, and give fluids if alert",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Push them to finish the task",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Heat exhaustion can progress to heat stroke. Stop and cool them."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Stop work and cool them.",
+          "choices": [
+            {
+              "label": "Rest in shade, cool, and rehydrate",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "You cool them, but they become confused and their skin turns hot and dry.",
+          "choices": [
+            {
+              "label": "Recognise heat stroke, cool aggressively, and arrange urgent transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Give more water and continue resting only",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Confusion with hot skin is heat stroke, an emergency needing aggressive cooling and transport."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You caught the progression to heat stroke and escalated. Lifesaving recognition.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "When it tips into heat stroke, cooling and transport are urgent.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s59",
+      "title": "Worker refuses transport",
+      "domainIds": [
+        "role",
+        "assessment"
+      ],
+      "tags": [
+        "industrial",
+        "construction",
+        "forestry"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "After a head knock, a capable adult worker insists they are fine and refuses transport.",
+          "choices": [
+            {
+              "label": "Explain the risks clearly and that symptoms can worsen",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Force them into the vehicle",
+              "next": "n1b",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "You cannot force care on a capable adult. Inform and document."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "You cannot force a capable adult. Inform them instead.",
+          "choices": [
+            {
+              "label": "Explain the risks and recommend assessment",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "They still decline after hearing the risks.",
+          "choices": [
+            {
+              "label": "Respect the refusal, document it, advise warning signs, and ensure they are not alone",
+              "next": "endgood",
+              "score": 3
+            },
+            {
+              "label": "Walk away and record nothing",
+              "next": "endbad",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Document the refusal and the advice given, and arrange monitoring."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You informed, respected the choice, documented, and arranged a safety net. Right approach.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Even with a refusal, document it and give clear warning-sign advice.",
+          "choices": []
+        }
+      }
+    },
+    {
+      "id": "s60",
+      "title": "Steam burn to the hand",
+      "domainIds": [
+        "environment",
+        "trauma",
+        "airway"
+      ],
+      "tags": [
+        "industrial",
+        "marine"
+      ],
+      "start": "n1",
+      "nodes": {
+        "n1": {
+          "prompt": "A steam line releases and scalds a worker's hand and forearm.",
+          "choices": [
+            {
+              "label": "Cool the burn with clean cool running water for about twenty minutes",
+              "next": "n2",
+              "score": 3
+            },
+            {
+              "label": "Apply ice and a tight bandage",
+              "next": "n1b",
+              "score": -2,
+              "feedback": {
+                "type": "bad",
+                "text": "Ice can worsen a burn. Use cool running water and a loose dressing."
+              }
+            }
+          ]
+        },
+        "n1b": {
+          "prompt": "Use cool running water instead.",
+          "choices": [
+            {
+              "label": "Cool with running water",
+              "next": "n2",
+              "score": 0
+            }
+          ]
+        },
+        "n2": {
+          "prompt": "The hand is cooled. They were close to the release and now sound hoarse.",
+          "choices": [
+            {
+              "label": "Suspect an airway burn, monitor breathing closely, and arrange urgent transport",
+              "next": "endgood",
+              "score": 4
+            },
+            {
+              "label": "Dress the hand and send them back to work",
+              "next": "endbad",
+              "score": -3,
+              "feedback": {
+                "type": "bad",
+                "text": "Hoarseness after steam suggests an airway burn, an emergency."
+              }
+            }
+          ]
+        },
+        "endgood": {
+          "prompt": "You cooled the burn and caught the airway risk. Excellent vigilance.",
+          "choices": []
+        },
+        "endbad": {
+          "prompt": "Hoarseness after steam can mean a swelling airway. That needs urgent care.",
+          "choices": []
+        }
+      }
     }
   ]
 };
@@ -9356,6 +12500,7 @@ function loadState(){
     domains: store.get("afa_domains") || {},  // id -> {seen, correct, attempts, last}
     streak: store.get("afa_streak") || {count:0,last:null},
     seenDisc: store.get("afa_disc") || false,
+    seenTour: store.get("afa_tour") || false,
     recent: store.get("afa_recent") || {scenarios:[],quiz:[],lessons:[],focus:[]}  // rolling history to avoid repeats
   };
 }
@@ -9410,6 +12555,7 @@ function App(){
   useEffect(()=>{ store.set("afa_domains", st.domains); },[st.domains]);
   useEffect(()=>{ store.set("afa_streak", st.streak); },[st.streak]);
   useEffect(()=>{ store.set("afa_disc", st.seenDisc); },[st.seenDisc]);
+  useEffect(()=>{ store.set("afa_tour", st.seenTour); },[st.seenTour]);
   useEffect(()=>{ store.set("afa_recent", st.recent); },[st.recent]);
 
   const evac = useMemo(()=>{
@@ -9459,6 +12605,10 @@ function App(){
       const cont = prev.streak.last && daysBetween(prev.streak.last,t)===1;
       return {...prev, streak:{count: cont?prev.streak.count+1:1, last:t}};
     });
+  }
+
+  if(!st.seenTour){
+    return <Tour theme={theme} setTheme={setTheme} onDone={()=> setSt(prev=>({...prev, seenTour:true}))} />;
   }
 
   if(!st.profile){
@@ -9521,8 +12671,80 @@ function App(){
 }
 
 /* ================= Onboarding ================= */
+function Tour({onDone, theme, setTheme}){
+  const [i,setI]=useState(0);
+  const steps = [
+    { title:"Welcome to Field Ready",
+      body:"A short daily workout that keeps your Advanced First Aid skills sharp between recertifications.",
+      visual:(<div className="tour-card" style={{textAlign:"center"}}>
+        <svg className="mark" viewBox="0 0 32 32" style={{width:54,height:54}}><circle cx="16" cy="16" r="15"/><path d="M16 9v14M9 16h14" strokeWidth="3" strokeLinecap="round" stroke="#fff"/></svg>
+        <div style={{fontWeight:800,fontSize:21,marginTop:10,letterSpacing:"-.01em",color:"var(--ink)"}}>Field Ready</div>
+        <div className="muted" style={{marginTop:4}}>A study aid, not a substitute for training or medical direction.</div>
+      </div>) },
+    { title:"Your daily dose",
+      body:"Each day you get a short, mixed session weighted to where you are weakest: a few flashcards, a scenario, some quick checks, and a field note. Open the Today tab and tap Begin.",
+      visual:(<div className="tour-card">
+        <div style={{textAlign:"center",marginBottom:10}}>
+          <span className="tv-chip">Flashcards</span><span className="tv-chip">Scenario</span><span className="tv-chip">Quick checks</span><span className="tv-chip">Field note</span>
+        </div>
+        <div className="btn btn-amber">Begin</div>
+      </div>) },
+    { title:"Flashcards that adapt",
+      body:"Reveal the answer, then rate how it went. Cards you miss come back soon, and cards you know get pushed far out, so your time goes where it helps most.",
+      visual:(<div className="tour-card">
+        <div className="flash" style={{minHeight:84,fontSize:15,padding:"14px 10px"}}>What is the first priority at any scene?</div>
+        <div className="tv-rate"><span>Didn't know</span><span>Got it</span><span style={{borderColor:"var(--accent)",color:"var(--accent)"}}>Too easy</span></div>
+      </div>) },
+    { title:"Scenarios and quick checks",
+      body:"Scenarios branch on your decisions and adapt to whether help is near or far. Quick checks tell you right away if you were right, with a short explanation.",
+      visual:(<div className="tour-card">
+        <div className="opt" style={{marginBottom:8}}>Control the bleeding first</div>
+        <div className="verdict v-right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Correct</div>
+      </div>) },
+    { title:"Readiness gauges",
+      body:"The bars on Today and Me show how sharp each system is. Green is solid, amber and red are fading. Your daily dose pulls toward the weak ones for you.",
+      visual:(<div className="tour-card">
+        <div className="gauge" style={{marginBottom:14}}><div className="grow"><span className="gname">Circulation</span><span className="gval" style={{color:"var(--vital-good)"}}>78</span></div><div className="gtrack"><div className="gfill" style={{width:"78%",background:"var(--vital-good)"}}/></div></div>
+        <div className="gauge"><div className="grow"><span className="gname">Airway and breathing <span className="gflag">fading</span></span><span className="gval" style={{color:"var(--vital-low)"}}>34</span></div><div className="gtrack"><div className="gfill" style={{width:"34%",background:"var(--vital-low)"}}/></div></div>
+      </div>) },
+    { title:"Find your way around",
+      body:"Four tabs sit at the bottom. Today is your daily dose, Practice lets you drill any topic, Reference browses the whole library, and Me holds your progress and settings.",
+      visual:(<div className="tour-card"><div className="tv-tabs">
+        <div className="tv-tab on"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-2v9h-5v-6h-4v6H5v-9H3z"/></svg>Today</div>
+        <div className="tv-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><rect x="4" y="5" width="16" height="3.5" rx="1"/><rect x="4" y="10.5" width="16" height="3.5" rx="1"/><rect x="4" y="16" width="10" height="3.5" rx="1"/></svg>Practice</div>
+        <div className="tv-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M6 4h11a2 2 0 012 2v14H8a2 2 0 01-2-2z"/></svg>Reference</div>
+        <div className="tv-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><circle cx="12" cy="8" r="3.3"/><path d="M5 20a7 7 0 0114 0"/></svg>Me</div>
+      </div></div>) },
+    { title:"Light and dark",
+      body:`Tap the sun or moon in the top right corner any time to switch between light and dark. Go ahead and try it, you are in ${theme} mode right now.`,
+      visual:(<div className="tour-card" style={{textAlign:"center"}}>
+        <button className="tv-toggle" onClick={()=>setTheme(theme==="light"?"dark":"light")} aria-label="Toggle dark mode">
+          {theme==="light"
+            ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" style={{width:34,height:34}}><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            : <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" style={{width:34,height:34}}><circle cx="12" cy="12" r="4.3"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M19.1 4.9l-1.6 1.6M6.5 17.5l-1.6 1.6"/></svg>}
+        </button>
+        <div className="muted" style={{marginTop:12}}>Tap to try it</div>
+      </div>) }
+  ];
+  const last = i===steps.length-1;
+  return (<div className="tour">
+    <button className="tour-skip" onClick={onDone}>{last?"":"Skip"}</button>
+    <div className="tour-main">
+      <div className="tour-visual">{steps[i].visual}</div>
+      <div className="tour-title">{steps[i].title}</div>
+      <div className="tour-body">{steps[i].body}</div>
+    </div>
+    <div className="tour-dots">{steps.map((_,k)=><div key={k} className={"tour-dot"+(k===i?" on":"")}/>)}</div>
+    <div className="tour-nav">
+      {i>0 && <button className="btn btn-ghost" onClick={()=>setI(i-1)}>Back</button>}
+      <button className="btn btn-amber" onClick={()=> last?onDone():setI(i+1)}>{last?"Get started":"Next"}</button>
+    </div>
+  </div>);
+}
+
 function Onboarding({onDone}){
   const [step,setStep]=useState(0);
+  const [name,setName]=useState("");
   const [industry,setIndustry]=useState(null);
   const [courseDate,setCourseDate]=useState("");
   const [answers,setAnswers]=useState({});
@@ -9531,39 +12753,47 @@ function Onboarding({onDone}){
 
   function finish(){
     const exp = courseDate ? (()=>{ const d=new Date(courseDate); d.setFullYear(d.getFullYear()+3); return d.toISOString().slice(0,10);})() : null;
-    onDone({industry, courseDate, certExpiry:exp});
+    onDone({name:name.trim(), industry, courseDate, certExpiry:exp});
   }
 
   function skipTest(){
     const cd=(()=>{ const d=new Date(); d.setMonth(d.getMonth()-18); return d.toISOString().slice(0,10);})();
     const exp=(()=>{ const d=new Date(cd); d.setFullYear(d.getFullYear()+3); return d.toISOString().slice(0,10);})();
-    onDone({industry: industry||"wilderness", courseDate:cd, certExpiry:exp, demo:true});
+    onDone({name: name.trim()||"Tester", industry: industry||"wilderness", courseDate:cd, certExpiry:exp, demo:true});
   }
 
   return (<div className="screen">
-    <p className="eyebrow">Set up · {step+1} of 3</p>
+    <p className="eyebrow">Set up · {step+1} of 4</p>
     {step===0 && <React.Fragment>
-      <h1 className="h1">Where do you work?</h1>
+      <h1 className="h1">What should we call you?</h1>
+      <p className="muted" style={{marginBottom:16}}>Just a first name is fine. It is stored only on this device and is used to personalize the app.</p>
+      <p className="label">Your name</p>
+      <input className="input" type="text" value={name} autoComplete="given-name" placeholder="e.g. Brian"
+        onChange={e=>setName(e.target.value)} onKeyDown={e=>{ if(e.key==="Enter"&&name.trim()) setStep(1); }} />
+      <button className="btn btn-amber" style={{marginTop:6}} disabled={!name.trim()} onClick={()=>setStep(1)}>Continue</button>
+    </React.Fragment>}
+
+    {step===1 && <React.Fragment>
+      <h1 className="h1">{name.trim()?`Where do you work, ${name.trim()}?`:"Where do you work?"}</h1>
       <p className="muted" style={{marginBottom:16}}>This shapes which situations the app drills you on, including how far help is. You can change it any time.</p>
       <div className="seg">
         {INDUSTRIES.map(i=>(
           <button key={i.id} className={industry===i.id?"sel":""} onClick={()=>setIndustry(i.id)}>{i.label}</button>
         ))}
       </div>
-      <button className="btn btn-amber" style={{marginTop:14}} disabled={!industry}
-        onClick={()=>setStep(1)} >Continue</button>
+      <button className="btn btn-amber" style={{marginTop:14}} disabled={!industry} onClick={()=>setStep(2)}>Continue</button>
     </React.Fragment>}
 
-    {step===1 && <React.Fragment>
+    {step===2 && <React.Fragment>
       <h1 className="h1">When did you take the course?</h1>
       <p className="muted" style={{marginBottom:16}}>Advanced certificates are valid for three years. This sets your recert countdown. Leave it blank if you are not sure.</p>
       <p className="label">Course date</p>
       <input className="input" type="date" value={courseDate} onChange={e=>setCourseDate(e.target.value)} />
-      <button className="btn btn-amber" onClick={()=>setStep(2)}>Continue</button>
-      <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>setStep(2)}>Skip</button>
+      <button className="btn btn-amber" onClick={()=>setStep(3)}>Continue</button>
+      <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>setStep(3)}>Skip</button>
     </React.Fragment>}
 
-    {step===2 && <React.Fragment>
+    {step===3 && <React.Fragment>
       <h1 className="h1">Quick baseline</h1>
       <p className="muted" style={{marginBottom:16}}>Five questions so your readiness board starts honest instead of empty.</p>
       <Progress i={bi} n={baseline.length}/>
@@ -9691,10 +12921,13 @@ function Today({st, evac, start}){
   const high = board.filter(b=>b.d.stakes==="high");
   const attention = board.filter(b=>b.r.status==="low").map(b=>b.d.name);
   const doneToday = st.streak.last===today;
+  const hr = new Date().getHours();
+  const greet = hr<12?"Good morning":hr<17?"Good afternoon":"Good evening";
+  const nm = (st.profile.name||"").trim();
 
   return (<div className="screen">
     <p className="eyebrow">{new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"})}</p>
-    <h1 className="h1">Today</h1>
+    <h1 className="h1">{nm ? `${greet}, ${nm}` : "Today"}</h1>
 
     <div className="card dose-card">
       <p className="eyebrow">Daily dose · about 7 minutes</p>
@@ -9961,7 +13194,13 @@ function Me({st,evac,setSt}){
 
   return (<div className="screen">
     <p className="eyebrow">Your status</p>
-    <h1 className="h1">Me</h1>
+    <h1 className="h1">{(st.profile.name||"").trim() || "Me"}</h1>
+
+    <div className="card">
+      <p className="label">Your name</p>
+      <input className="input" type="text" value={st.profile.name||""} placeholder="Your name"
+        style={{marginBottom:0}} onChange={e=>setSt(p=>({...p,profile:{...p.profile,name:e.target.value}}))} />
+    </div>
 
     <div className="card">
       <p className="label">Certification</p>
@@ -9991,7 +13230,13 @@ function Me({st,evac,setSt}){
     <h2 className="h2">Field readiness · all domains</h2>
     <div className="ringgrid">{board.map(({d,r})=> <Vital key={d.id} d={d} r={r}/>)}</div>
 
-    <button className="btn btn-ghost" style={{marginTop:18}} onClick={()=>{
+    <h2 className="h2">Help</h2>
+    <button className="tour-replay" onClick={()=>setSt(p=>({...p, seenTour:false}))}>
+      <span>Replay the walkthrough</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>{
       if(confirm("Reset all your progress? This cannot be undone.")){
         ["afa_items","afa_domains","afa_streak"].forEach(k=>store.set(k, k==="afa_streak"?{count:0,last:null}:{}));
         setSt(p=>({...p, items:{}, domains:{}, streak:{count:0,last:null}}));
