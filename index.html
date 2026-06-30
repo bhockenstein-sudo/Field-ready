@@ -113,6 +113,14 @@
   .gflag{font-family:var(--mono);font-size:8.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--vital-low);
     border:1px solid var(--vital-low);border-radius:4px;padding:1px 5px;opacity:.85}
   .gflag.gnew{color:var(--faint);border-color:var(--faint)}
+  .gflag.gbuild{color:var(--muted);border-color:var(--muted)}
+  .session-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .session-x{width:34px;height:34px;border-radius:50%;border:1px solid var(--glass-brd);background:var(--glass-2);
+    color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:0 0 auto;
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .session-x svg{width:17px;height:17px}
+  .session-x:active{transform:scale(.94)}
+  .session-count{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:600}
   .star{color:var(--vital-fade);font-size:9px}
 
   .list-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px;
@@ -12523,8 +12531,11 @@ function readiness(domain, dstat, contentCount){
   const halfLife = domain.halfLife || 30;
   const since = dstat.last ? daysBetween(dstat.last, todayStr()) : 999;
   const recency = Math.exp(-Math.max(0,since)/halfLife);
-  const coverage = Math.min(1, (dstat.seenIds ? dstat.seenIds.length : dstat.seen||0) / Math.max(1,contentCount));
+  const seen = dstat.seenIds ? dstat.seenIds.length : dstat.seen||0;
+  const coverage = Math.min(1, seen / Math.max(1,contentCount));
   const score = Math.round(100*acc*recency*coverage);
+  // not enough practice yet to judge fairly: show as building, not fading
+  if(dstat.attempts < 8 || coverage < 0.2) return {score, status:"building"};
   const status = score<40 ? "low" : "ok";
   return {score, status};
 }
@@ -12658,6 +12669,7 @@ function App(){
       {session
         ? <SessionRunner session={session} evac={evac}
             onItem={recordItem} onDomain={recordDomain} onSeen={markSeen}
+            onCancel={()=> setSession(null)}
             onFinish={()=>{ bumpStreak(); setSession(null); }} />
         : view
           ? <DetailView view={view} evac={evac} onItem={recordItem} onDomain={recordDomain}
@@ -12950,7 +12962,14 @@ function Today({st, evac, start}){
     <div className="card dose-card">
       <p className="eyebrow">Daily dose · about 7 minutes</p>
       <div className="dose-h">{doneToday?"Another round?":"Start today's dose"}</div>
-      <p className="dose-sub">{due>0?`${due} cards due, `:"Cards reviewed, "}one scenario, a quick check and a field note, weighted to where you are weakest.</p>
+      <p className="dose-sub">{(()=>{
+        const nCards=Math.min(due,6);
+        const parts=[];
+        if(nCards>0) parts.push(`${nCards} flashcard${nCards>1?"s":""}`);
+        parts.push("a scenario","3 quick checks","a field note");
+        const list = parts.slice(0,-1).join(", ")+", and "+parts[parts.length-1];
+        return list.charAt(0).toUpperCase()+list.slice(1)+", focused on where you are weakest.";
+      })()}</p>
       <button className="btn btn-amber" onClick={()=>start(buildSession(st,evac))}>
         {doneToday?"Train again":"Begin"}
       </button>
@@ -12969,34 +12988,52 @@ function Today({st, evac, start}){
 }
 
 function Vital({d,r}){
-  const col = vitalColor(r.score,r.status);
-  const pct = r.status==="new"?0:Math.max(3,r.score);
+  const building = r.status==="new" || r.status==="building";
+  const noNum = r.score==null;
+  const col = building ? "var(--vital-new)" : vitalColor(r.score,r.status);
+  const pct = noNum?0:Math.max(3,r.score);
   return (<div className="gauge">
     <div className="grow">
       <span className="gname">{d.stakes==="high"&&<span className="star">★ </span>}{d.name}
         {r.status==="low" && <span className="gflag">fading</span>}
-        {r.status==="new" && <span className="gflag gnew">new</span>}
+        {building && <span className="gflag gbuild">building</span>}
       </span>
-      <span className="gval" style={{color: r.status==="new"?"var(--faint)":col}}>{r.status==="new"?"—":r.score}</span>
+      <span className="gval" style={{color: building?"var(--muted)":col}}>{noNum?"—":r.score}</span>
     </div>
-    <div className="gtrack"><div className="gfill" style={{width:pct+"%",background: r.status==="new"?"var(--faint)":col}}/></div>
+    <div className="gtrack"><div className="gfill" style={{width:pct+"%",background: col}}/></div>
   </div>);
 }
 
 /* ================= Session Runner ================= */
-function SessionRunner({session, evac, onItem, onDomain, onSeen, onFinish}){
+function SessionRunner({session, evac, onItem, onDomain, onSeen, onFinish, onCancel}){
   const [i,setI]=useState(0);
+  const [leaving,setLeaving]=useState(false);
   const steps=session.steps;
   if(i>=steps.length) return <SessionDone weak={session.weak} onFinish={onFinish}/>;
   const step=steps[i];
   const next=()=>setI(i+1);
 
   return (<div className="screen">
+    <div className="session-top">
+      <button className="session-x" onClick={()=>setLeaving(true)} aria-label="Close session">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span className="session-count">{i+1} of {steps.length}</span>
+    </div>
     <Progress i={i} n={steps.length}/>
     {step.type==="card" && <CardStep key={"c"+i+step.data.id} card={step.data} onGrade={(g)=>{ onItem(step.data.id,g); onSeen(step.data.domainId,step.data.id); onDomain(step.data.domainId, g!=="again"); next(); }}/>}
     {step.type==="quiz" && <QuizStep key={"q"+i+step.data.id} q={step.data} onDone={(ok)=>{ onSeen(step.data.domainId,step.data.id); onDomain(step.data.domainId, ok); next(); }}/>}
     {step.type==="scenario" && <ScenarioStep key={"s"+i+step.data.id} s={step.data} evac={evac} onDone={(ok)=>{ step.data.domainIds.forEach(d=>onDomain(d, ok)); next(); }}/>}
     {step.type==="lesson" && <LessonStep key={"l"+i} m={step.data} onDone={next}/>}
+
+    {leaving && <div className="modal-bg" onClick={()=>setLeaving(false)}>
+      <div className="modal" onClick={e=>e.stopPropagation()}>
+        <h2 className="h2" style={{margin:"0 0 8px"}}>Leave this session?</h2>
+        <p className="muted" style={{marginBottom:18}}>Your answers so far are saved. You can start a fresh dose any time.</p>
+        <button className="btn btn-amber" onClick={onCancel}>Leave session</button>
+        <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>setLeaving(false)}>Keep going</button>
+      </div>
+    </div>}
   </div>);
 }
 function SessionDone({weak,onFinish}){
@@ -13203,6 +13240,7 @@ function DomainPractice({d,evac,onItem,onDomain,onSeen,back}){
 
 /* ================= Me ================= */
 function Me({st,evac,setSt}){
+  const [confirmReset,setConfirmReset]=useState(false);
   const board=C.domains.map(d=>{
     const cnt=C.flashcards.filter(f=>f.domainId===d.id).length+C.quiz.filter(q=>q.domainId===d.id).length;
     return {d,r:readiness(d,st.domains[d.id],cnt)};
@@ -13254,14 +13292,22 @@ function Me({st,evac,setSt}){
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 
-    <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>{
-      if(confirm("Reset all your progress? This cannot be undone.")){
-        ["afa_items","afa_domains","afa_streak"].forEach(k=>store.set(k, k==="afa_streak"?{count:0,last:null}:{}));
-        setSt(p=>({...p, items:{}, domains:{}, streak:{count:0,last:null}}));
-      }
-    }}>Reset my progress</button>
+    <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>setConfirmReset(true)}>Reset my progress</button>
 
-    <p className="muted center" style={{marginTop:18,fontSize:11,opacity:.7}}>Field Ready · build 2 · {C.flashcards.length+C.quiz.length+C.microlessons.length+C.scenarios.length} items</p>
+    {confirmReset && <div className="modal-bg" onClick={()=>setConfirmReset(false)}>
+      <div className="modal" onClick={e=>e.stopPropagation()}>
+        <h2 className="h2" style={{margin:"0 0 8px"}}>Reset all progress?</h2>
+        <p className="muted" style={{marginBottom:18}}>This clears your readiness, streak, and card history. Your name and settings are kept. This cannot be undone.</p>
+        <button className="btn btn-amber" onClick={()=>{
+          ["afa_items","afa_domains","afa_streak"].forEach(k=>store.set(k, k==="afa_streak"?{count:0,last:null}:{}));
+          setSt(p=>({...p, items:{}, domains:{}, streak:{count:0,last:null}}));
+          setConfirmReset(false);
+        }}>Reset everything</button>
+        <button className="btn btn-ghost" style={{marginTop:8}} onClick={()=>setConfirmReset(false)}>Cancel</button>
+      </div>
+    </div>}
+
+    <p className="muted center" style={{marginTop:18,fontSize:11,opacity:.7}}>Field Ready · build 4 · {C.flashcards.length+C.quiz.length+C.microlessons.length+C.scenarios.length} items</p>
   </div>);
 }
 
